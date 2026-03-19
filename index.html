@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luca Pignatelli — Calculus of Variations</title>
+
+  <!-- SEO -->
+  <title>Luca Pignatelli — PhD Candidate in Calculus of Variations</title>
+  <meta name="description" content="Academic portfolio of Luca Pignatelli, PhD candidate in Calculus of Variations at Radboud University Nijmegen." />
 
   <!-- ============================================================
        MATH RENDERING — MathJax 3
-       Usage anywhere in the HTML:
-         Inline:   \( f(x) \)
-         Display:  \[ \int_{a}^{b} L(x,y,y')\,dx \]
+       Inline:   \( f(x) \)
+       Display:  \[ \int_{a}^{b} L(x,y,y')\,dx \]
   ============================================================ -->
   <script>
     window.MathJax = {
@@ -25,9 +27,9 @@
 
   <!-- ============================================================
        FONTS
-       Cormorant Garant — display headings (elegant, scholarly)
-       EB Garamond      — body text (classical serif, readable)
-       DM Sans          — UI labels, nav (clean neutral sans)
+       Cormorant Garant — display headings
+       EB Garamond      — body text
+       DM Sans          — UI / navigation
   ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +41,7 @@
 <body>
 
   <!-- ============================================================
-       MOBILE HAMBURGER BUTTON
+       MOBILE HAMBURGER
   ============================================================ -->
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span><span></span><span></span>
@@ -50,39 +52,62 @@
   ============================================================ -->
   <aside class="sidebar" id="sidebar">
 
-    <!-- Identity block -->
+    <!-- Language toggle -->
+    <div class="lang-toggle-wrap">
+      <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btnIT" onclick="setLang('it')">IT</button>
+    </div>
+
+    <!-- Identity -->
     <div class="sidebar-identity">
       <div class="headshot-wrap">
-        <!-- Replace src with your actual photo -->
-        <img src="https://placehold.co/160x160/e8e2d9/0d1b2a?text=Photo" alt="Headshot of Dr. [Your Name]" class="headshot" />
+        <!-- Replace with your actual photo: <img src="photo.jpg" ...> -->
+        <img src="https://placehold.co/160x160/e8e2d9/0d1b2a?text=LP" alt="Luca Pignatelli" class="headshot" />
       </div>
       <h1 class="sidebar-name">Luca Pignatelli</h1>
-      <p class="sidebar-title">PhD student in Calculus<br>of Variations</p>
-      <p class="sidebar-affiliation">Radboud Universiteit, Nijmegen</p>
+      <p class="sidebar-title">
+        <span class="t" data-en="PhD Candidate" data-it="Dottorando"></span><br>
+        <span class="t" data-en="Calculus of Variations" data-it="Calcolo delle Variazioni"></span>
+      </p>
+      <p class="sidebar-affiliation">
+        Radboud University<br>Nijmegen, NL
+      </p>
     </div>
 
     <!-- Navigation -->
     <nav class="sidebar-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="#about"        class="nav-link" data-section="about">About</a></li>
-        <li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
-        <li><a href="#teaching"     class="nav-link" data-section="teaching">Teaching</a></li>
-        <li><a href="#cv"           class="nav-link" data-section="cv">Curriculum Vitae</a></li>
+        <li><a href="#about"        class="nav-link" data-section="about">
+          <span class="t" data-en="About" data-it="Chi Sono"></span>
+        </a></li>
+        <li><a href="#publications" class="nav-link" data-section="publications">
+          <span class="t" data-en="Publications" data-it="Pubblicazioni"></span>
+        </a></li>
+        <li><a href="#talks"        class="nav-link" data-section="talks">
+          <span class="t" data-en="Talks" data-it="Seminari"></span>
+        </a></li>
+        <li><a href="#teaching"     class="nav-link" data-section="teaching">
+          <span class="t" data-en="Teaching" data-it="Didattica"></span>
+        </a></li>
+        <li><a href="#cv"           class="nav-link" data-section="cv">
+          <span class="t" data-en="Curriculum Vitae" data-it="Curriculum Vitae"></span>
+        </a></li>
       </ul>
     </nav>
 
-    <!-- Contact / Social -->
+    <!-- Contact -->
     <div class="sidebar-contact">
-      <a href="mailto:your.email@university.edu" class="contact-link">luca.pignatelli@ru.nl</a>
+      <a href="mailto:luca.pignatelli@ru.nl" class="contact-link">luca.pignatelli@ru.nl</a>
       <div class="social-links">
-        <a href="https://scholar.google.com" target="_blank" rel="noopener" class="social-btn">Google Scholar</a>
-        <a href="https://arxiv.org"          target="_blank" rel="noopener" class="social-btn">arXiv</a>
-        <a href="https://github.com"         target="_blank" rel="noopener" class="social-btn">GitHub</a>
+        <a href="https://arxiv.org/search/?searchtype=author&query=Pignatelli%2C+Luca" target="_blank" rel="noopener" class="social-btn">arXiv</a>
+        <a href="https://www.ru.nl/en/people/pignatelli-l" target="_blank" rel="noopener" class="social-btn">Radboud</a>
+        <a href="https://scholar.google.com" target="_blank" rel="noopener" class="social-btn">Scholar</a>
       </div>
     </div>
 
     <!-- Decorative math watermark -->
-    <div class="sidebar-watermark" aria-hidden="true">\(\sigma \mathrm{Per} (\{ u=a \};\Omega)\)</div>
+    <div class="sidebar-watermark" aria-hidden="true">\(\Gamma\text{-}\lim_{\varepsilon\to 0}\mathcal{F}_\varepsilon\)</div>
 
   </aside>
 
@@ -91,377 +116,687 @@
   ============================================================ -->
   <main class="main-content" id="mainContent">
 
-    <!-- ——————————————————————————————————————————
-         SECTION 1 · ABOUT
-    —————————————————————————————————————————— -->
+    <!-- ══════════════════════════════════════════════════════════
+         §1 · ABOUT
+    ══════════════════════════════════════════════════════════ -->
     <section id="about" class="section">
       <div class="section-label">01</div>
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title">
+        <span class="t" data-en="About Me" data-it="Chi Sono"></span>
+      </h2>
 
       <div class="about-grid">
         <div class="about-bio">
-          <p class="lead">
-            I am a mathematician working at the intersection of
-            <em>Calculus of Variations</em>, geometric measure theory, and
-            partial differential equations.
-          </p>
-          <p>
-            My research focuses on existence, regularity, and qualitative
-            properties of minimizers for variational integrals of the form
-            \[
-              \mathcal{F}[u] = \int_{\Omega} F\!\left(x,\, u(x),\, \nabla u(x)\right) dx,
-            \]
-            where \(F\) satisfies general growth and coercivity conditions.
-            I am particularly interested in cases where the integrand
-            \(F(\xi)\) is <em>quasiconvex but not polyconvex</em>, leading
-            to subtle relaxation phenomena.
-          </p>
-          <p>
-            Before joining [University], I held postdoctoral positions at
-            [Institution A] and [Institution B]. I completed my PhD at
-            [PhD Institution] under the supervision of
-            [Supervisor Name].
-          </p>
-        </div>
 
-        <div class="about-interests">
-          <h3 class="subsection-title">Research Interests</h3>
-          <ul class="interest-list">
-            <li>Direct methods in the calculus of variations</li>
-            <li>Lower semicontinuity and relaxation</li>
-            <li>Regularity theory for elliptic systems</li>
-            <li>Geometric measure theory &amp; currents</li>
-            <li>Gamma-convergence and homogenization</li>
-            <li>Optimal transport &amp; Wasserstein geometry</li>
-            <li>Free-boundary problems</li>
-          </ul>
-
-          <h3 class="subsection-title" style="margin-top: 2rem;">A Favourite Result</h3>
-          <div class="theorem-box">
-            <span class="theorem-label">Theorem (Morrey, 1952)</span>
+          <!-- ENGLISH bio -->
+          <div class="lang-block" data-lang-block="en">
+            <p class="lead">
+              I am a third-year PhD candidate in <em>Calculus of Variations</em>
+              at Radboud University Nijmegen, under the supervision of
+              <a href="https://www.ru.nl/en/people/cristoferi-r" target="_blank" rel="noopener">Prof. Riccardo Cristoferi</a>.
+              My position runs from September 2023 to August 2027.
+            </p>
             <p>
-              A continuous function \(F\colon \mathbb{R}^{m\times n}\to\mathbb{R}\)
-              is <em>quasiconvex</em> if and only if for every open bounded
-              \(\Omega\subset\mathbb{R}^n\) and every \(\varphi\in W^{1,\infty}_0(\Omega;\mathbb{R}^m)\),
-              \[
-                F(A)\,|\Omega| \;\leq\; \int_\Omega F\!\left(A + \nabla\varphi(x)\right)dx.
-              \]
+              My doctoral research focuses on <em>Homogenisation and Phase Separation
+              with multiple microscales</em>. Concretely, I study the asymptotic behaviour,
+              via \(\Gamma\)-convergence, of Cahn–Hilliard-type energies in heterogeneous
+              periodic media when two (or more) length scales \(\varepsilon \ll \delta \ll 1\)
+              compete simultaneously. The goal is to identify the effective sharp-interface
+              limit and understand how the geometry of the microstructure governs the
+              resulting surface tension.
+            </p>
+            <p>
+              Before Nijmegen I completed a Master's degree in <em>Engineering Mathematics</em>
+              at the Polytechnic University of Turin, with a thesis on quasi-static brittle
+              fracture in the Francfort–Marigo model, supervised by
+              <a href="https://staff.polito.it/marco.morandotti/" target="_blank" rel="noopener">Prof. Marco Morandotti</a>.
+              During my Master's I spent an exchange semester at KTH Royal Institute of
+              Technology in Stockholm.
             </p>
           </div>
-        </div>
-      </div>
+
+          <!-- ITALIAN bio -->
+          <div class="lang-block" data-lang-block="it" hidden>
+            <p class="lead">
+              Sono un dottorando al terzo anno in <em>Calcolo delle Variazioni</em>
+              presso l'Università Radboud di Nimega, sotto la supervisione del
+              <a href="https://www.ru.nl/en/people/cristoferi-r" target="_blank" rel="noopener">Prof. Riccardo Cristoferi</a>.
+              La mia posizione si svolge da settembre 2023 ad agosto 2027.
+            </p>
+            <p>
+              La mia ricerca di dottorato verte su <em>Omogeneizzazione e Separazione
+              di Fase con multiple microscale</em>. Nello specifico, studio il comportamento
+              asintotico, tramite \(\Gamma\)-convergenza, di funzionali di tipo Cahn–Hilliard
+              in mezzi periodici eterogenei quando due (o più) scale di lunghezza
+              \(\varepsilon \ll \delta \ll 1\) competono simultaneamente.
+            </p>
+            <p>
+              Prima di Nimega ho conseguito una laurea magistrale in <em>Matematica per
+              l'Ingegneria</em> al Politecnico di Torino, con una tesi sulla frattura fragile
+              quasi-statica nel modello di Francfort–Marigo, relatore il
+              <a href="https://staff.polito.it/marco.morandotti/" target="_blank" rel="noopener">Prof. Marco Morandotti</a>.
+              Durante la magistrale ho trascorso un semestre di scambio al KTH Royal
+              Institute of Technology di Stoccolma.
+            </p>
+          </div>
+
+        </div><!-- /.about-bio -->
+
+        <div class="about-interests">
+          <h3 class="subsection-title">
+            <span class="t" data-en="Research Interests" data-it="Interessi di Ricerca"></span>
+          </h3>
+          <ul class="interest-list">
+            <li><span class="t" data-en="Calculus of variations &amp; direct methods" data-it="Calcolo delle variazioni &amp; metodi diretti"></span></li>
+            <li><span class="t" data-en="Γ-convergence &amp; homogenisation" data-it="Γ-convergenza &amp; omogeneizzazione"></span></li>
+            <li><span class="t" data-en="Phase separation &amp; Cahn–Hilliard energies" data-it="Separazione di fase &amp; energie di Cahn–Hilliard"></span></li>
+            <li><span class="t" data-en="Geometric measure theory" data-it="Teoria geometrica della misura"></span></li>
+            <li><span class="t" data-en="Free-discontinuity problems &amp; brittle fracture" data-it="Problemi a frontiera libera &amp; frattura fragile"></span></li>
+            <li><span class="t" data-en="Sharp-interface limits &amp; mean curvature flow" data-it="Limiti sharp-interface &amp; flusso per curvatura media"></span></li>
+            <li><span class="t" data-en="Mathematical modelling in material science" data-it="Modellistica matematica per la scienza dei materiali"></span></li>
+          </ul>
+
+          <h3 class="subsection-title" style="margin-top:2rem;">
+            <span class="t" data-en="A Guiding Problem" data-it="Un Problema Guida"></span>
+          </h3>
+          <div class="theorem-box">
+            <span class="theorem-label">
+              <span class="t" data-en="Central object of study" data-it="Oggetto centrale di studio"></span>
+            </span>
+            <div class="lang-block" data-lang-block="en">
+              <p>
+                Given two small parameters \(\varepsilon, \delta \to 0\) with
+                \(\varepsilon/\delta \to 0\), study the \(\Gamma\)-limit of
+                \[
+                  \mathcal{F}_{\varepsilon,\delta}[u]
+                  = \int_\Omega \left[\frac{1}{\varepsilon}
+                    W\!\left(\tfrac{x}{\delta}, u\right)
+                  + \varepsilon\,|\nabla u|^2\right]dx,
+                \]
+                where \(W(y,\cdot)\) is a double-well potential that is
+                \(\mathbb{Z}^n\)-periodic in \(y\), and characterise
+                the effective surface tension of the limit interface.
+              </p>
+            </div>
+            <div class="lang-block" data-lang-block="it" hidden>
+              <p>
+                Dati due parametri piccoli \(\varepsilon, \delta \to 0\) con
+                \(\varepsilon/\delta \to 0\), si studia il \(\Gamma\)-limite di
+                \[
+                  \mathcal{F}_{\varepsilon,\delta}[u]
+                  = \int_\Omega \left[\frac{1}{\varepsilon}
+                    W\!\left(\tfrac{x}{\delta}, u\right)
+                  + \varepsilon\,|\nabla u|^2\right]dx,
+                \]
+                dove \(W(y,\cdot)\) è un potenziale a doppio pozzo
+                \(\mathbb{Z}^n\)-periodico in \(y\), caratterizzando
+                la tensione superficiale effettiva dell'interfaccia limite.
+              </p>
+            </div>
+          </div><!-- /.theorem-box -->
+        </div><!-- /.about-interests -->
+      </div><!-- /.about-grid -->
     </section>
 
-    <!-- ——————————————————————————————————————————
-         SECTION 2 · PUBLICATIONS
-    —————————————————————————————————————————— -->
+    <!-- ══════════════════════════════════════════════════════════
+         §2 · PUBLICATIONS
+    ══════════════════════════════════════════════════════════ -->
     <section id="publications" class="section">
       <div class="section-label">02</div>
-      <h2 class="section-title">Publications</h2>
+      <h2 class="section-title">
+        <span class="t" data-en="Publications" data-it="Pubblicazioni"></span>
+      </h2>
 
       <div class="pub-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="journal">Journal Articles</button>
-        <button class="filter-btn" data-filter="preprint">Preprints</button>
-        <button class="filter-btn" data-filter="proceedings">Proceedings</button>
+        <button class="filter-btn active" data-filter="all">
+          <span class="t" data-en="All" data-it="Tutto"></span>
+        </button>
+        <button class="filter-btn" data-filter="preprint">
+          <span class="t" data-en="Preprints" data-it="Preprint"></span>
+        </button>
+        <button class="filter-btn" data-filter="ongoing">
+          <span class="t" data-en="In Progress" data-it="In Corso"></span>
+        </button>
       </div>
 
       <ol class="pub-list" reversed>
 
-        <!-- ·· JOURNAL ARTICLE ·· -->
-        <li class="pub-item" data-type="journal">
-          <div class="pub-meta">
-            <span class="pub-year">2024</span>
-            <span class="pub-badge journal">Journal</span>
-          </div>
-          <p class="pub-title">
-            Regularity of Minimizers for a Class of Anisotropic Free-Discontinuity Functionals
-          </p>
-          <p class="pub-authors">
-            <strong>[Your Name]</strong>, J. Coauthor, &amp; M. Collaborator
-          </p>
-          <p class="pub-venue">
-            <em>Archive for Rational Mechanics and Analysis</em>, vol.&nbsp;248, pp.&nbsp;1–54
-          </p>
-          <p class="pub-abstract">
-            We prove partial regularity for local minimizers of the functional
-            \(\mathcal{F}[u] = \int_\Omega |Du|^p\,dx + \mathcal{H}^{n-1}(S_u)\)
-            under \((p,q)\)-growth conditions on the bulk energy density…
-          </p>
-          <div class="pub-links">
-            <a href="path/to/paper.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download PDF
-            </a>
-            <a href="https://doi.org/10.xxxx/xxxxx" target="_blank" rel="noopener" class="btn btn-doi">DOI</a>
-          </div>
-        </li>
-
-        <!-- ·· PREPRINT ·· -->
+        <!-- ── PAPER 1: arXiv preprint ── -->
         <li class="pub-item" data-type="preprint">
           <div class="pub-meta">
-            <span class="pub-year">2024</span>
-            <span class="pub-badge preprint">Preprint</span>
+            <span class="pub-year">2025</span>
+            <span class="pub-badge preprint">arXiv</span>
+            <span class="pub-badge journal" style="background:#e0ece0;color:#2a5a2a;">
+              <span class="t" data-en="Under Review (ESAIM)" data-it="In Revisione (ESAIM)"></span>
+            </span>
           </div>
           <p class="pub-title">
-            Gamma-Convergence of Nonlocal Functionals Depending on Vector Fields
+            Phase separation in multiply periodic materials with fine microstructures
           </p>
-          <p class="pub-authors"><strong>[Your Name]</strong> &amp; A. Coauthor</p>
-          <p class="pub-venue"><em>arXiv preprint</em> 2401.XXXXX</p>
-          <p class="pub-abstract">
-            We study the \(\Gamma\)-limit as \(\varepsilon\to 0\) of the family
-            \(\mathcal{F}_\varepsilon[u]=\int_\Omega W\!\left(\frac{u}{\varepsilon},\nabla u\right)dx\)
-            subject to a divergence-free constraint \(\operatorname{div}(A(x)u)=0\)…
+          <p class="pub-authors">
+            R. Cristoferi, <strong>L. Pignatelli</strong>
           </p>
+          <p class="pub-venue">
+            <em>arXiv:2506.14462</em> &mdash;
+            <span class="t"
+              data-en="submitted to ESAIM: Control, Optimisation and Calculus of Variations"
+              data-it="sottomesso a ESAIM: Control, Optimisation and Calculus of Variations">
+            </span>
+          </p>
+          <div class="lang-block" data-lang-block="en">
+            <p class="pub-abstract">
+              We study the simultaneous homogenisation and sharp-interface limit
+              for Cahn–Hilliard-type energies in multiply periodic heterogeneous
+              media. When two microscales \(\varepsilon \ll \delta \ll 1\) are
+              present, we identify — via \(\Gamma\)-convergence — the effective
+              surface tension as a cell-problem formula encoding the interplay
+              between both periodicities.
+            </p>
+          </div>
+          <div class="lang-block" data-lang-block="it" hidden>
+            <p class="pub-abstract">
+              Studiamo il limite simultaneo di omogeneizzazione e sharp-interface
+              per funzionali di tipo Cahn–Hilliard in mezzi eterogenei
+              multiperiodici. In presenza di due microscale \(\varepsilon \ll \delta \ll 1\),
+              identifichiamo — tramite \(\Gamma\)-convergenza — la tensione superficiale
+              effettiva come soluzione di un problema su cella che codifica
+              l'interazione tra le due periodicità.
+            </p>
+          </div>
           <div class="pub-links">
-            <a href="path/to/preprint.pdf" class="btn btn-pdf" download>
+            <a href="https://arxiv.org/abs/2506.14462" target="_blank" rel="noopener" class="btn btn-pdf">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17.5l-4-4h3V10h2v3.5h3l-4 4z"/></svg>
+              <span class="t" data-en="View on arXiv" data-it="Vedi su arXiv"></span>
+            </a>
+            <a href="https://arxiv.org/pdf/2506.14462" class="btn btn-pdf" download>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download PDF
+              <span class="t" data-en="Download PDF" data-it="Scarica PDF"></span>
             </a>
           </div>
         </li>
 
-        <!-- ·· JOURNAL ARTICLE ·· -->
-        <li class="pub-item" data-type="journal">
+        <!-- ── PAPER 2: ongoing ── -->
+        <li class="pub-item" data-type="ongoing">
           <div class="pub-meta">
-            <span class="pub-year">2023</span>
-            <span class="pub-badge journal">Journal</span>
+            <span class="pub-year">2026</span>
+            <span class="pub-badge ongoing">
+              <span class="t" data-en="In Progress" data-it="In Corso"></span>
+            </span>
           </div>
           <p class="pub-title">
-            Quasiconvexity at the Boundary and the Validity of the Euler–Lagrange Equation
+            Phase separation in multiply periodic materials with fine microstructures: a second regime
           </p>
-          <p class="pub-authors"><strong>[Your Name]</strong></p>
-          <p class="pub-venue">
-            <em>Journal of Functional Analysis</em>, vol.&nbsp;285, no.&nbsp;4, 109975
-          </p>
-          <p class="pub-abstract">
-            We show that if \(u_0\in W^{1,p}(\Omega)\) is a strong local minimizer
-            of a functional satisfying \(p\)-growth, then the Euler–Lagrange
-            system \(\operatorname{div} D_\xi F(\nabla u)=0\) holds in the sense
-            of distributions without additional convexity assumptions…
-          </p>
-          <div class="pub-links">
-            <a href="path/to/paper2.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download PDF
-            </a>
-            <a href="https://doi.org/10.xxxx/xxxxx" target="_blank" rel="noopener" class="btn btn-doi">DOI</a>
+          <p class="pub-authors">R. Cristoferi, <strong>L. Pignatelli</strong></p>
+          <div class="lang-block" data-lang-block="en">
+            <p class="pub-abstract">
+              Continuation of the first paper, addressing the remaining asymptotic
+              regimes when the ratio \(\varepsilon/\delta\) converges to a positive
+              constant or to \(+\infty\), completing the picture for multiply
+              periodic phase-separation energies.
+            </p>
+          </div>
+          <div class="lang-block" data-lang-block="it" hidden>
+            <p class="pub-abstract">
+              Continuazione del primo articolo, che affronta i restanti regimi
+              asintotici quando il rapporto \(\varepsilon/\delta\) converge a
+              una costante positiva o a \(+\infty\), completando il quadro per
+              le energie di separazione di fase multiperiodica.
+            </p>
           </div>
         </li>
 
-        <!-- ·· PROCEEDINGS ·· -->
-        <li class="pub-item" data-type="proceedings">
+        <!-- ── PAPER 3: ongoing ── -->
+        <li class="pub-item" data-type="ongoing">
           <div class="pub-meta">
-            <span class="pub-year">2022</span>
-            <span class="pub-badge proceedings">Proceedings</span>
+            <span class="pub-year">2026</span>
+            <span class="pub-badge ongoing">
+              <span class="t" data-en="In Progress" data-it="In Corso"></span>
+            </span>
           </div>
           <p class="pub-title">
-            Lavrentiev Phenomenon for Non-Autonomous Functionals with Unbounded Coefficients
+            Sharp interface dynamics in heterogeneous domains
           </p>
-          <p class="pub-authors"><strong>[Your Name]</strong>, B. Author, &amp; C. Author</p>
-          <p class="pub-venue">
-            <em>Proceedings of the Royal Society of Edinburgh A</em>, vol.&nbsp;152, pp.&nbsp;1640–1666
+          <p class="pub-authors">
+            R. Cristoferi, L. Ganedi, <strong>L. Pignatelli</strong>
           </p>
-          <p class="pub-abstract">
-            We construct examples demonstrating the Lavrentiev gap for integrals
-            \(\int_0^1 a(x)|u'|^{p(x)}dx\) when the variable exponent \(p(x)\)
-            fails the log-Hölder continuity condition at an isolated point…
+          <div class="lang-block" data-lang-block="en">
+            <p class="pub-abstract">
+              We study the convergence from the diffuse-interface gradient flow
+              (Allen–Cahn) to the sharp-interface mean curvature flow in
+              heterogeneous periodic media. In collaboration with
+              Likhit Ganedi (University of Utah).
+            </p>
+          </div>
+          <div class="lang-block" data-lang-block="it" hidden>
+            <p class="pub-abstract">
+              Si studia la convergenza dal flusso gradiente ad interfaccia diffusa
+              (Allen–Cahn) al flusso per curvatura media ad interfaccia netta
+              in mezzi periodici eterogenei. In collaborazione con
+              Likhit Ganedi (University of Utah).
+            </p>
+          </div>
+        </li>
+
+        <!-- ── PAPER 4: ongoing ── -->
+        <li class="pub-item" data-type="ongoing">
+          <div class="pub-meta">
+            <span class="pub-year">2026</span>
+            <span class="pub-badge ongoing">
+              <span class="t" data-en="In Progress" data-it="In Corso"></span>
+            </span>
+          </div>
+          <p class="pub-title">Wild wild wells</p>
+          <p class="pub-authors">
+            R. Cristoferi, J. Deutsch, <strong>L. Pignatelli</strong>
           </p>
-          <div class="pub-links">
-            <a href="path/to/paper3.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download PDF
-            </a>
-            <a href="https://doi.org/10.xxxx/xxxxx" target="_blank" rel="noopener" class="btn btn-doi">DOI</a>
+          <div class="lang-block" data-lang-block="en">
+            <p class="pub-abstract">
+              We characterise the lowest regularity that moving wells can have
+              in a heterogeneous phase separation model, showing that
+              \(\Gamma\)-convergence results persist under surprisingly weak
+              assumptions on the well structure. In collaboration with
+              Jakob Deutsch (TU Wien).
+            </p>
+          </div>
+          <div class="lang-block" data-lang-block="it" hidden>
+            <p class="pub-abstract">
+              Caratterizziamo la minima regolarità che i pozzi mobili possono
+              avere in un modello di separazione di fase eterogeneo, mostrando
+              che i risultati di \(\Gamma\)-convergenza persistono sotto ipotesi
+              sorprendentemente deboli sulla struttura dei pozzi. In collaborazione
+              con Jakob Deutsch (TU Wien).
+            </p>
           </div>
         </li>
 
       </ol>
     </section>
 
-    <!-- ——————————————————————————————————————————
-         SECTION 3 · TEACHING & LECTURES
-    —————————————————————————————————————————— -->
-    <section id="teaching" class="section">
+    <!-- ══════════════════════════════════════════════════════════
+         §3 · TALKS
+    ══════════════════════════════════════════════════════════ -->
+    <section id="talks" class="section">
       <div class="section-label">03</div>
-      <h2 class="section-title">Teaching &amp; Lectures</h2>
+      <h2 class="section-title">
+        <span class="t" data-en="Talks &amp; Presentations" data-it="Seminari &amp; Presentazioni"></span>
+      </h2>
 
-      <h3 class="subsection-title">Courses Taught</h3>
-      <div class="teaching-grid">
-
-        <div class="course-card">
-          <div class="course-meta">
-            <span class="course-term">Spring 2024</span>
-            <span class="course-level">Graduate</span>
-          </div>
-          <h4 class="course-name">Calculus of Variations I</h4>
-          <p class="course-inst">[University] · [Department]</p>
-          <p class="course-desc">
-            Direct methods, weak lower semicontinuity, coercivity,
-            Euler–Lagrange equations, regularity of minimizers.
-            Topics include the Fundamental Lemma of CoV and the
-            Weierstrass necessary conditions.
-          </p>
-          <div class="pub-links">
-            <a href="path/to/notes.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download Lecture Notes
-            </a>
-          </div>
-        </div>
-
-        <div class="course-card">
-          <div class="course-meta">
-            <span class="course-term">Fall 2023</span>
-            <span class="course-level">Graduate</span>
-          </div>
-          <h4 class="course-name">Sobolev Spaces &amp; Elliptic PDE</h4>
-          <p class="course-inst">[University] · [Department]</p>
-          <p class="course-desc">
-            \(W^{k,p}\) spaces, traces, extension theorems, Poincaré and
-            Morrey embeddings. Lax–Milgram, Fredholm alternative,
-            de Giorgi–Nash–Moser theory.
-          </p>
-          <div class="pub-links">
-            <a href="path/to/notes2.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download Lecture Notes
-            </a>
-          </div>
-        </div>
-
-        <div class="course-card">
-          <div class="course-meta">
-            <span class="course-term">Spring 2023</span>
-            <span class="course-level">Undergraduate</span>
-          </div>
-          <h4 class="course-name">Real Analysis</h4>
-          <p class="course-inst">[University] · [Department]</p>
-          <p class="course-desc">
-            Lebesgue measure and integration, \(L^p\) spaces,
-            Radon–Nikodym theorem, Fourier analysis, introduction to
-            functional analysis.
-          </p>
-          <div class="pub-links">
-            <a href="path/to/notes3.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              Download Lecture Notes
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <h3 class="subsection-title" style="margin-top: 3.5rem;">Invited Talks &amp; Mini-Courses</h3>
       <div class="talk-list">
 
         <div class="talk-item">
-          <div class="talk-date">Nov 2024</div>
+          <div class="talk-date">Jul 2025</div>
           <div class="talk-body">
-            <p class="talk-title">Relaxation of Functionals with Linear Growth in Geometric Measure Theory</p>
-            <p class="talk-venue">Workshop on Variational Methods in Materials Science · [City]</p>
-            <div class="pub-links">
-              <a href="path/to/slides.pdf" class="btn btn-pdf" download>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-                Download Slides
-              </a>
-            </div>
+            <p class="talk-title">Phase separation in multiply periodic materials with fine microstructures</p>
+            <p class="talk-venue">Workshop Calculus of Variations NL &mdash; Roermond</p>
           </div>
         </div>
 
         <div class="talk-item">
-          <div class="talk-date">Jun 2024</div>
+          <div class="talk-date">Jun 2025</div>
           <div class="talk-body">
-            <p class="talk-title">Quasiconvexity, Rank-One Convexity, and the Distance Between Them</p>
-            <p class="talk-venue">Analysis Seminar · [University Name]</p>
-            <div class="pub-links">
-              <a href="path/to/slides2.pdf" class="btn btn-pdf" download>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-                Download Slides
-              </a>
-            </div>
+            <p class="talk-title">
+              <span class="t"
+                data-en="Poster: Phase separation in heterogeneous media"
+                data-it="Poster: Separazione di fase in mezzi eterogenei">
+              </span>
+            </p>
+            <p class="talk-venue">
+              <span class="t"
+                data-en="Summer School "Mathematical Analysis and Applications" — Como"
+                data-it="Scuola Estiva "Mathematical Analysis and Applications" — Como">
+              </span>
+            </p>
           </div>
         </div>
 
         <div class="talk-item">
-          <div class="talk-date">Mar 2023</div>
+          <div class="talk-date">May 2025</div>
           <div class="talk-body">
-            <p class="talk-title">Mini-Course: Introduction to \(\Gamma\)-Convergence (3 Lectures)</p>
-            <p class="talk-venue">Spring School in Analysis · [Institution]</p>
-            <div class="pub-links">
-              <a href="path/to/minicourse.pdf" class="btn btn-pdf" download>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-                Download Notes
-              </a>
-            </div>
+            <p class="talk-title">Phase separation in heterogeneous media</p>
+            <p class="talk-venue">
+              <span class="t" data-en="Seminar on Calculus of Variations — TU Wien, Vienna" data-it="Seminario di Calcolo delle Variazioni — TU Wien, Vienna"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date">Mar 2025</div>
+          <div class="talk-body">
+            <p class="talk-title">Homogenization and phase separation in heterogeneous media</p>
+            <p class="talk-venue">
+              <span class="t" data-en="Seminar talk — RWTH Aachen University, Aachen" data-it="Seminario — RWTH Aachen University, Aachen"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date">Oct 2024</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t"
+                data-en="Why Soap Films are Smarter than Calculus — a historical overview of Plateau's Problem"
+                data-it="Perché le Bolle di Sapone sono più Intelligenti del Calcolo — panoramica storica del Problema di Plateau">
+              </span>
+            </p>
+            <p class="talk-venue">
+              PhD Colloquium &mdash; Radboud University, Nijmegen
+            </p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date">Oct 2024</div>
+          <div class="talk-body">
+            <p class="talk-title">Gamma Mia &mdash; an introduction to Γ-convergence</p>
+            <p class="talk-venue">
+              PhD Colloquium &mdash; Radboud University, Nijmegen
+            </p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date">Apr 2024</div>
+          <div class="talk-body">
+            <p class="talk-title">Phase separation in multi-scale media</p>
+            <p class="talk-venue">
+              Mathematical Advances for Complex Materials with Microstructures &mdash; University of Würzburg
+            </p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date">Nov 2023</div>
+          <div class="talk-body">
+            <p class="talk-title">Quasi-static brittle fracture: analysis of the Francfort–Marigo model</p>
+            <p class="talk-venue">
+              Applied Analysis Seminar &mdash; Radboud University, Nijmegen
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /.talk-list -->
+
+      <!-- UPCOMING -->
+      <h3 class="subsection-title" style="margin-top:3rem;">
+        <span class="t" data-en="Upcoming" data-it="Prossimi Appuntamenti"></span>
+      </h3>
+      <div class="talk-list upcoming-list">
+
+        <div class="talk-item">
+          <div class="talk-date upcoming-date">May 2026</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t" data-en="Research visit" data-it="Visita di ricerca"></span>
+              &mdash; TU Wien, Vienna
+            </p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date upcoming-date">Jun 2026</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t"
+                data-en="Poster: Workshop Calculus of Variations and Applications to the Real World"
+                data-it="Poster: Workshop Calculus of Variations and Applications to the Real World">
+              </span>
+            </p>
+            <p class="talk-venue">Cortona</p>
+          </div>
+        </div>
+
+        <div class="talk-item">
+          <div class="talk-date upcoming-date">Jul 2026</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t" data-en="Talk: Workshop Calculus of Variations NL" data-it="Seminario: Workshop Calculus of Variations NL"></span>
+            </p>
+            <p class="talk-venue">Roermond</p>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ——————————————————————————————————————————
-         SECTION 4 · CURRICULUM VITAE
-    —————————————————————————————————————————— -->
-    <section id="cv" class="section">
+    <!-- ══════════════════════════════════════════════════════════
+         §4 · TEACHING
+    ══════════════════════════════════════════════════════════ -->
+    <section id="teaching" class="section">
       <div class="section-label">04</div>
+      <h2 class="section-title">
+        <span class="t" data-en="Teaching" data-it="Didattica"></span>
+      </h2>
+
+      <div class="lang-block" data-lang-block="en">
+        <p style="margin-bottom:2rem;color:var(--ink-mid);">
+          I have served as a teaching assistant for the following courses at Radboud University.
+        </p>
+      </div>
+      <div class="lang-block" data-lang-block="it" hidden>
+        <p style="margin-bottom:2rem;color:var(--ink-mid);">
+          Ho svolto il ruolo di assistente per i seguenti corsi all'Università Radboud.
+        </p>
+      </div>
+
+      <div class="teaching-grid">
+
+        <div class="course-card">
+          <div class="course-meta">
+            <span class="course-term">Sep 2025 – Jan 2026</span>
+            <span class="course-level">
+              <span class="t" data-en="Bachelor" data-it="Triennale"></span>
+            </span>
+          </div>
+          <h4 class="course-name">Numerical Methods</h4>
+          <p class="course-inst">Radboud University</p>
+          <p class="course-desc">
+            <span class="t"
+              data-en="Teaching assistant for the bachelor course."
+              data-it="Assistente per il corso triennale.">
+            </span>
+          </p>
+        </div>
+
+        <div class="course-card">
+          <div class="course-meta">
+            <span class="course-term">Feb 2025 – Jun 2025</span>
+            <span class="course-level">
+              <span class="t" data-en="Master" data-it="Magistrale"></span>
+            </span>
+          </div>
+          <h4 class="course-name">Calculus of Variations</h4>
+          <p class="course-inst">
+            Radboud University
+            <span class="t" data-en="(MasterMath course)" data-it="(corso MasterMath)"></span>
+          </p>
+          <p class="course-desc">
+            <span class="t"
+              data-en="Teaching assistant for the national MasterMath graduate course."
+              data-it="Assistente per il corso magistrale nazionale MasterMath.">
+            </span>
+          </p>
+        </div>
+
+        <div class="course-card">
+          <div class="course-meta">
+            <span class="course-term">Sep 2024 – Jan 2025</span>
+            <span class="course-level">
+              <span class="t" data-en="Bachelor" data-it="Triennale"></span>
+            </span>
+          </div>
+          <h4 class="course-name">Multivariable Analysis</h4>
+          <p class="course-inst">Radboud University</p>
+          <p class="course-desc">
+            <span class="t"
+              data-en="Teaching assistant for the bachelor course."
+              data-it="Assistente per il corso triennale.">
+            </span>
+          </p>
+        </div>
+
+        <div class="course-card">
+          <div class="course-meta">
+            <span class="course-term">Feb 2024 – Jun 2024</span>
+            <span class="course-level">
+              <span class="t" data-en="Bachelor" data-it="Triennale"></span>
+            </span>
+          </div>
+          <h4 class="course-name">
+            <span class="t"
+              data-en="Numerical Methods for PDEs"
+              data-it="Metodi Numerici per le EDP">
+            </span>
+          </h4>
+          <p class="course-inst">Radboud University</p>
+          <p class="course-desc">
+            <span class="t"
+              data-en="Teaching assistant for the bachelor course."
+              data-it="Assistente per il corso triennale.">
+            </span>
+          </p>
+        </div>
+
+        <div class="course-card">
+          <div class="course-meta">
+            <span class="course-term">Sep 2023 – Jan 2024</span>
+            <span class="course-level">
+              <span class="t" data-en="Bachelor" data-it="Triennale"></span>
+            </span>
+          </div>
+          <h4 class="course-name">Analysis 2</h4>
+          <p class="course-inst">Radboud University</p>
+          <p class="course-desc">
+            <span class="t"
+              data-en="Teaching assistant for the bachelor course."
+              data-it="Assistente per il corso triennale.">
+            </span>
+          </p>
+        </div>
+
+      </div><!-- /.teaching-grid -->
+
+      <!-- Service & Projects -->
+      <h3 class="subsection-title" style="margin-top:3.5rem;">
+        <span class="t" data-en="Service &amp; Projects" data-it="Servizio &amp; Progetti"></span>
+      </h3>
+
+      <div class="talk-list">
+        <div class="talk-item">
+          <div class="talk-date">2024–</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t" data-en="Head of YSC Committee" data-it="Responsabile Comitato YSC"></span>
+            </p>
+            <p class="talk-venue">
+              <span class="t"
+                data-en="Young Scientist Council, Institute for Mathematics, Astrophysics and Particle Physics — Radboud University"
+                data-it="Young Scientist Council, Istituto di Matematica, Astrofisica e Fisica delle Particelle — Radboud University">
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="talk-item">
+          <div class="talk-date">2023–</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t" data-en="Reading Group Organiser (CalcVarNL)" data-it="Organizzatore Gruppo di Lettura (CalcVarNL)"></span>
+            </p>
+            <p class="talk-venue">
+              <span class="t"
+                data-en="Series of meetings for the Calculus of Variations community in The Netherlands. Topics: Gradient Flows, Optimal Transport, Stochastic Analysis."
+                data-it="Serie di incontri per la comunità di Calcolo delle Variazioni nei Paesi Bassi. Argomenti: Flussi Gradiente, Trasporto Ottimale, Analisi Stocastica.">
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="talk-item">
+          <div class="talk-date">2024, 2025</div>
+          <div class="talk-body">
+            <p class="talk-title">
+              <span class="t" data-en="Modelling Camp Organiser" data-it="Organizzatore Modelling Camp"></span>
+            </p>
+            <p class="talk-venue">
+              <span class="t"
+                data-en="Radboud University — Collaboration with Dutch industry to model real-world problems mathematically and numerically."
+                data-it="Radboud University — Collaborazione con aziende olandesi per modellare problemi reali in modo matematico e numerico.">
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         §5 · CURRICULUM VITAE
+    ══════════════════════════════════════════════════════════ -->
+    <section id="cv" class="section">
+      <div class="section-label">05</div>
       <h2 class="section-title">Curriculum Vitae</h2>
 
       <div class="cv-download-wrap">
-        <p>A full PDF version of my curriculum vitae is available below.</p>
-        <a href="path/to/cv.pdf" class="btn btn-pdf btn-cv" download>
+        <p>
+          <span class="t"
+            data-en="A full PDF version of my CV is available below."
+            data-it="Una versione PDF completa del mio CV è disponibile qui sotto.">
+          </span>
+        </p>
+        <a href="Luca_Pignatelli_CV.pdf" class="btn btn-pdf btn-cv" download>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-          Download Full CV
+          <span class="t" data-en="Download Full CV" data-it="Scarica CV Completo"></span>
         </a>
       </div>
 
       <!-- Timeline -->
       <div class="timeline">
 
-        <h3 class="subsection-title">Academic Positions</h3>
-
+        <h3 class="subsection-title">
+          <span class="t" data-en="Academic Position" data-it="Posizione Accademica"></span>
+        </h3>
         <div class="timeline-track">
-
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-content">
-              <span class="tl-year">2022 — present</span>
-              <h4 class="tl-role">Assistant Professor</h4>
-              <p class="tl-place">[Department of Mathematics] · [University]</p>
+              <span class="tl-year">Sep 2023 – Aug 2027</span>
+              <h4 class="tl-role">
+                <span class="t" data-en="PhD Candidate in Mathematics" data-it="Dottorando in Matematica"></span>
+              </h4>
+              <p class="tl-place">
+                Radboud University, Nijmegen &mdash;
+                <span class="t" data-en="Supervisor:" data-it="Relatore:"></span>
+                <a href="https://www.ru.nl/en/people/cristoferi-r" target="_blank" rel="noopener">Prof. Riccardo Cristoferi</a><br>
+                <em>
+                  <span class="t"
+                    data-en="Project: Homogenisation and Phase Separation with multiple microscales"
+                    data-it="Progetto: Omogeneizzazione e Separazione di Fase con multiple microscale">
+                  </span>
+                </em>
+              </p>
             </div>
           </div>
-
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-year">2020 — 2022</span>
-              <h4 class="tl-role">Postdoctoral Researcher</h4>
-              <p class="tl-place">[Institute / University A] — supervised by [Name]</p>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <span class="tl-year">2018 — 2020</span>
-              <h4 class="tl-role">Postdoctoral Fellow</h4>
-              <p class="tl-place">[Institute / University B]</p>
-            </div>
-          </div>
-
         </div>
 
-        <h3 class="subsection-title" style="margin-top:2.5rem;">Education</h3>
+        <h3 class="subsection-title" style="margin-top:2.5rem;">
+          <span class="t" data-en="Education" data-it="Formazione"></span>
+        </h3>
         <div class="timeline-track">
 
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-content">
-              <span class="tl-year">2015 — 2018</span>
-              <h4 class="tl-role">PhD in Mathematics</h4>
+              <span class="tl-year">Sep 2021 – Jul 2023</span>
+              <h4 class="tl-role">
+                <span class="t" data-en="MSc in Engineering Mathematics" data-it="Laurea Magistrale in Matematica per l'Ingegneria"></span>
+              </h4>
               <p class="tl-place">
-                [PhD University] — Advisor: [Prof. Name]<br>
-                <em>Thesis: "Regularity and Relaxation in the Calculus of Variations"</em>
+                Polytechnic University of Turin<br>
+                <em>
+                  <span class="t"
+                    data-en="Thesis: Anti-plane analysis of the Francfort–Marigo model for quasi-static brittle fracture"
+                    data-it="Tesi: Analisi antiplane del modello di Francfort–Marigo per la frattura fragile quasi-statica">
+                  </span>
+                </em><br>
+                <span class="t" data-en="Supervisor:" data-it="Relatore:"></span>
+                <a href="https://staff.polito.it/marco.morandotti/" target="_blank" rel="noopener">Prof. Marco Morandotti</a>
               </p>
             </div>
           </div>
@@ -469,73 +804,149 @@
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-content">
-              <span class="tl-year">2013 — 2015</span>
-              <h4 class="tl-role">MSc in Mathematics</h4>
-              <p class="tl-place">[University]</p>
+              <span class="tl-year">Aug 2022 – Jan 2023</span>
+              <h4 class="tl-role">
+                <span class="t" data-en="Exchange Semester" data-it="Semestre di Scambio"></span>
+              </h4>
+              <p class="tl-place">KTH Royal Institute of Technology, Stockholm</p>
             </div>
           </div>
 
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-content">
-              <span class="tl-year">2010 — 2013</span>
-              <h4 class="tl-role">BSc in Mathematics</h4>
-              <p class="tl-place">[University] — First Class Honours</p>
+              <span class="tl-year">Sep 2018 – Jul 2021</span>
+              <h4 class="tl-role">
+                <span class="t" data-en="BSc in Mathematics for Engineering" data-it="Laurea Triennale in Matematica per l'Ingegneria"></span>
+              </h4>
+              <p class="tl-place">
+                Polytechnic University of Turin<br>
+                <em>
+                  <span class="t"
+                    data-en="Thesis: Fractal dimension and Hausdorff measure"
+                    data-it="Tesi: Dimensione frattale e misura di Hausdorff">
+                  </span>
+                </em><br>
+                <span class="t" data-en="Supervisor:" data-it="Relatore:"></span>
+                Prof. Luca Lussardi
+              </p>
             </div>
           </div>
 
-        </div>
+        </div><!-- /.timeline-track -->
 
-        <h3 class="subsection-title" style="margin-top:2.5rem;">Grants &amp; Awards</h3>
+        <h3 class="subsection-title" style="margin-top:2.5rem;">
+          <span class="t" data-en="Research Visits" data-it="Visite di Ricerca"></span>
+        </h3>
         <div class="timeline-track">
-
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-content">
-              <span class="tl-year">2023</span>
-              <h4 class="tl-role">[Grant Name] — €[Amount]</h4>
-              <p class="tl-place">[Funding Agency]</p>
+              <span class="tl-year">May 2025</span>
+              <h4 class="tl-role">TU Wien, Vienna</h4>
+              <p class="tl-place">
+                <span class="t" data-en="Collaboration with Jakob Deutsch" data-it="Collaborazione con Jakob Deutsch"></span>
+              </p>
             </div>
           </div>
-
           <div class="tl-item">
             <div class="tl-dot"></div>
             <div class="tl-content">
-              <span class="tl-year">2021</span>
-              <h4 class="tl-role">[Prize Name]</h4>
-              <p class="tl-place">[Awarding Institution / Society]</p>
+              <span class="tl-year">Mar 2025</span>
+              <h4 class="tl-role">RWTH Aachen University, Aachen</h4>
+              <p class="tl-place">
+                <span class="t" data-en="Collaboration with Likhit Ganedi" data-it="Collaborazione con Likhit Ganedi"></span>
+              </p>
             </div>
           </div>
-
         </div>
+
+        <h3 class="subsection-title" style="margin-top:2.5rem;">
+          <span class="t" data-en="Skills" data-it="Competenze"></span>
+        </h3>
+        <div class="skills-grid">
+          <div class="skill-block">
+            <span class="skill-label">
+              <span class="t" data-en="Languages" data-it="Lingue"></span>
+            </span>
+            <p>
+              <span class="t"
+                data-en="Italian (native) · English (fluent) · Dutch (basic) · Spanish (basic)"
+                data-it="Italiano (madrelingua) · Inglese (fluente) · Olandese (base) · Spagnolo (base)">
+              </span>
+            </p>
+          </div>
+          <div class="skill-block">
+            <span class="skill-label">
+              <span class="t" data-en="Programming" data-it="Programmazione"></span>
+            </span>
+            <p>C++ · Python · MATLAB · LaTeX
+              <span class="t" data-en="(all advanced)" data-it="(tutti avanzati)"></span>
+            </p>
+          </div>
+        </div>
+
       </div><!-- /.timeline -->
     </section>
 
     <!-- Footer -->
     <footer class="site-footer">
       <p>
-        &copy; <span id="year"></span> Dr. [Your Name].
-        Built with plain HTML &amp; CSS.
-        Rendered with <a href="https://www.mathjax.org" target="_blank" rel="noopener">MathJax</a>.
+        &copy; <span id="year"></span> Luca Pignatelli.
+        <span class="t" data-en="Built with plain HTML &amp; CSS." data-it="Realizzato con HTML &amp; CSS puro."></span>
+        <span class="t" data-en="Rendered with" data-it="Formule con"></span>
+        <a href="https://www.mathjax.org" target="_blank" rel="noopener">MathJax</a>.
       </p>
     </footer>
 
   </main><!-- /.main-content -->
 
   <!-- ============================================================
-       MINIMAL JS — nav highlight + filter + mobile toggle + year
+       JAVASCRIPT
   ============================================================ -->
   <script>
-    // ── Active nav link on scroll ──
-    const sections  = document.querySelectorAll('.section');
-    const navLinks  = document.querySelectorAll('.nav-link');
+    // ── Language toggle ───────────────────────────────────────
+    function setLang(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+
+      // Switch buttons
+      document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+      document.getElementById('btnIT').classList.toggle('active', lang === 'it');
+
+      // Swap .t span text via data-en / data-it
+      document.querySelectorAll('.t[data-en][data-it]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+
+      // Show/hide lang-block divs
+      document.querySelectorAll('.lang-block[data-lang-block]').forEach(el => {
+        el.hidden = el.getAttribute('data-lang-block') !== lang;
+      });
+
+      // Update html lang attribute for accessibility
+      document.documentElement.lang = lang;
+
+      // Store preference
+      try { localStorage.setItem('lang', lang); } catch(e) {}
+    }
+
+    // Load saved preference
+    (function() {
+      var saved = 'en';
+      try { saved = localStorage.getItem('lang') || 'en'; } catch(e) {}
+      setLang(saved);
+    })();
+
+    // ── Active nav link on scroll ─────────────────────────────
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(l => l.classList.remove('active'));
           const id = entry.target.id;
-          const active = document.querySelector(`.nav-link[data-section="${id}"]`);
+          const active = document.querySelector('.nav-link[data-section="' + id + '"]');
           if (active) active.classList.add('active');
         }
       });
@@ -543,7 +954,7 @@
 
     sections.forEach(s => observer.observe(s));
 
-    // ── Publication filter ──
+    // ── Publication filter ────────────────────────────────────
     const filterBtns = document.querySelectorAll('.filter-btn');
     const pubItems   = document.querySelectorAll('.pub-item');
 
@@ -553,12 +964,13 @@
         btn.classList.add('active');
         const filter = btn.dataset.filter;
         pubItems.forEach(item => {
-          item.style.display = (filter === 'all' || item.dataset.type === filter) ? '' : 'none';
+          item.style.display =
+            (filter === 'all' || item.dataset.type === filter) ? '' : 'none';
         });
       });
     });
 
-    // ── Mobile nav toggle ──
+    // ── Mobile nav toggle ─────────────────────────────────────
     const toggle  = document.getElementById('navToggle');
     const sidebar = document.getElementById('sidebar');
 
@@ -567,7 +979,6 @@
       toggle.classList.toggle('open');
     });
 
-    // Close sidebar when a nav link is clicked on mobile
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         sidebar.classList.remove('open');
@@ -575,7 +986,7 @@
       });
     });
 
-    // ── Footer year ──
+    // ── Footer year ───────────────────────────────────────────
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
