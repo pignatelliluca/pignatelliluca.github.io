@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching — Luca Pignatelli</title>
+  <script>(function(){ var t=localStorage.getItem('lp-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); document.documentElement.setAttribute('data-theme',t); })();</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="mobile-header" id="mobile-header"></header>
+<aside  class="sidebar"       id="sidebar"></aside>
+
+<main class="main-content">
+<div class="page-content">
+
+  <div class="page-label">04</div>
+  <h2 class="page-title">Teaching</h2>
+
+  <p style="color:var(--ink-mid);font-size:.95rem;margin-bottom:2.5rem;">
+    I have served as a teaching assistant for the following courses at Radboud University.
+    Course materials and notes — where available — are linked below and archived in the
+    <a href="files.html">Files</a> section.
+  </p>
+
+  <!-- ── Courses ───────────────────────────────────────────── -->
+  <h3 class="subsection-title">Courses</h3>
+  <div class="teaching-grid">
+
+    <div class="course-card">
+      <div class="course-meta">
+        <span class="course-term">Sep 2025 – Jan 2026</span>
+        <span class="course-level">Bachelor</span>
+      </div>
+      <h4 class="course-name">Numerical Methods</h4>
+      <p class="course-inst">Radboud University</p>
+      <p class="course-desc">Teaching assistant for the bachelor course on numerical methods.</p>
+      <!-- Uncomment when notes are ready:
+      <div class="pub-links" style="margin-top:.75rem;">
+        <a href="files/notes_numerical_methods_2025.pdf" class="btn btn-pdf" download>
+          <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+          Notes
+        </a>
+      </div>
+      -->
+    </div>
+
+    <div class="course-card">
+      <div class="course-meta">
+        <span class="course-term">Feb 2025 – Jun 2025</span>
+        <span class="course-level">Master</span>
+      </div>
+      <h4 class="course-name">Calculus of Variations</h4>
+      <p class="course-inst">Radboud University <span style="color:var(--ink-lt)">(MasterMath)</span></p>
+      <p class="course-desc">TA for the national MasterMath graduate course on the calculus of variations.</p>
+    </div>
+
+    <div class="course-card">
+      <div class="course-meta">
+        <span class="course-term">Sep 2024 – Jan 2025</span>
+        <span class="course-level">Bachelor</span>
+      </div>
+      <h4 class="course-name">Multivariable Analysis</h4>
+      <p class="course-inst">Radboud University</p>
+      <p class="course-desc">Teaching assistant for the bachelor course on multivariable analysis.</p>
+    </div>
+
+    <div class="course-card">
+      <div class="course-meta">
+        <span class="course-term">Feb 2024 – Jun 2024</span>
+        <span class="course-level">Bachelor</span>
+      </div>
+      <h4 class="course-name">Numerical Methods for PDEs</h4>
+      <p class="course-inst">Radboud University</p>
+      <p class="course-desc">Teaching assistant for the bachelor course on numerical methods for partial differential equations.</p>
+    </div>
+
+    <div class="course-card">
+      <div class="course-meta">
+        <span class="course-term">Sep 2023 – Jan 2024</span>
+        <span class="course-level">Bachelor</span>
+      </div>
+      <h4 class="course-name">Analysis 2</h4>
+      <p class="course-inst">Radboud University</p>
+      <p class="course-desc">Teaching assistant for the bachelor course on analysis (measure theory, Lebesgue integration).</p>
+    </div>
+
+  </div><!-- /.teaching-grid -->
+
+  <!-- ── Service & Community ───────────────────────────────── -->
+  <h3 class="subsection-title" style="margin-top:3.5rem;">Service &amp; Community</h3>
+  <div class="talk-list">
+
+    <div class="talk-item">
+      <div class="talk-date">2024–</div>
+      <div>
+        <p class="talk-title">Head of YSC Committee</p>
+        <p class="talk-venue">Young Scientist Council, Institute for Mathematics, Astrophysics and Particle Physics — Radboud University</p>
+      </div>
+    </div>
+
+    <div class="talk-item">
+      <div class="talk-date">2023–</div>
+      <div>
+        <p class="talk-title">Reading Group Organiser (CalcVarNL)</p>
+        <p class="talk-venue">
+          Series of meetings for the Calculus of Variations community in The Netherlands.
+          Main topics: Gradient Flows, Optimal Transport, Stochastic Analysis.
+        </p>
+      </div>
+    </div>
+
+    <div class="talk-item">
+      <div class="talk-date">2024, 2025</div>
+      <div>
+        <p class="talk-title">Modelling Camp Organiser</p>
+        <p class="talk-venue">Radboud University — Collaboration with Dutch companies to model real-world problems mathematically and numerically.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<footer class="site-footer">
+  <p>&copy; <span id="yr"></span> Luca Pignatelli &mdash; Radboud University Nijmegen</p>
+</footer>
+</main>
+
+<script src="nav.js"></script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

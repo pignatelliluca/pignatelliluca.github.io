@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — Luca Pignatelli</title>
+  <script>(function(){ var t=localStorage.getItem('lp-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); document.documentElement.setAttribute('data-theme',t); })();</script>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="mobile-header" id="mobile-header"></header>
+<aside  class="sidebar"       id="sidebar"></aside>
+
+<main class="main-content">
+<div class="page-content">
+
+  <div class="page-label">02</div>
+  <h2 class="page-title">Publications</h2>
+
+  <div class="pub-filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="preprint">Preprint</button>
+    <button class="filter-btn" data-filter="ongoing">In Progress</button>
+  </div>
+
+  <ol class="pub-list" reversed>
+
+    <!-- ── 1 · arXiv preprint ── -->
+    <li class="pub-item" data-type="preprint">
+      <div class="pub-meta">
+        <span class="pub-year">2025</span>
+        <span class="pub-badge arxiv">arXiv</span>
+        <span class="pub-badge review">Under Review — ESAIM</span>
+      </div>
+      <p class="pub-title">
+        Phase separation in multiply periodic materials with fine microstructures
+      </p>
+      <p class="pub-authors">R. Cristoferi, <strong>L. Pignatelli</strong></p>
+      <p class="pub-venue"><em>arXiv:2506.14462</em></p>
+      <p class="pub-abstract">
+        We study the simultaneous homogenisation and sharp-interface limit for
+        Cahn–Hilliard-type energies in multiply periodic heterogeneous media.
+        When two microscales \(\varepsilon \ll \delta \ll 1\) are present, we
+        identify — via \(\Gamma\)-convergence — the effective surface tension as
+        a cell-problem formula encoding the interplay between both periodicities.
+      </p>
+      <div class="pub-links">
+        <a href="https://arxiv.org/abs/2506.14462" target="_blank" rel="noopener" class="btn btn-pdf">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM12 17.5l-4-4h3V10h2v3.5h3l-4 4z"/></svg>
+          View on arXiv
+        </a>
+        <a href="https://arxiv.org/pdf/2506.14462" class="btn btn-outline" download>
+          <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+          Download PDF
+        </a>
+      </div>
+    </li>
+
+    <!-- ── 2 · ongoing ── -->
+    <li class="pub-item" data-type="ongoing">
+      <div class="pub-meta">
+        <span class="pub-year">2026</span>
+        <span class="pub-badge ongoing">In Progress</span>
+      </div>
+      <p class="pub-title">
+        Phase separation in multiply periodic materials with fine microstructures: a second regime
+      </p>
+      <p class="pub-authors">R. Cristoferi, <strong>L. Pignatelli</strong></p>
+      <p class="pub-abstract">
+        Continuation of the first paper addressing the remaining asymptotic regimes
+        when the ratio \(\varepsilon/\delta\) converges to a positive constant or
+        to \(+\infty\), completing the picture for multiply periodic phase-separation
+        energies.
+      </p>
+    </li>
+
+    <!-- ── 3 · ongoing ── -->
+    <li class="pub-item" data-type="ongoing">
+      <div class="pub-meta">
+        <span class="pub-year">2026</span>
+        <span class="pub-badge ongoing">In Progress</span>
+      </div>
+      <p class="pub-title">Sharp interface dynamics in heterogeneous domains</p>
+      <p class="pub-authors">R. Cristoferi, L. Ganedi, <strong>L. Pignatelli</strong></p>
+      <p class="pub-abstract">
+        We study the convergence from the diffuse-interface gradient flow (Allen–Cahn)
+        to the sharp-interface mean curvature flow in heterogeneous periodic media.
+        In collaboration with Likhit Ganedi (University of Utah).
+      </p>
+    </li>
+
+    <!-- ── 4 · ongoing ── -->
+    <li class="pub-item" data-type="ongoing">
+      <div class="pub-meta">
+        <span class="pub-year">2026</span>
+        <span class="pub-badge ongoing">In Progress</span>
+      </div>
+      <p class="pub-title">Wild wild wells</p>
+      <p class="pub-authors">R. Cristoferi, J. Deutsch, <strong>L. Pignatelli</strong></p>
+      <p class="pub-abstract">
+        We characterise the lowest regularity that moving wells can have in a
+        heterogeneous phase separation model, showing that \(\Gamma\)-convergence
+        results persist under surprisingly weak assumptions on the well structure.
+        In collaboration with Jakob Deutsch (TU Wien).
+      </p>
+    </li>
+
+  </ol>
+
+</div>
+<footer class="site-footer">
+  <p>&copy; <span id="yr"></span> Luca Pignatelli &mdash; Radboud University Nijmegen</p>
+</footer>
+</main>
+
+<script src="nav.js"></script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // Filter
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.dataset.filter;
+      document.querySelectorAll('.pub-item').forEach(function(item){
+        item.style.display = (f==='all' || item.dataset.type===f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

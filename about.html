@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Luca Pignatelli</title>
+  <script>(function(){ var t=localStorage.getItem('lp-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); document.documentElement.setAttribute('data-theme',t); })();</script>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="mobile-header" id="mobile-header"></header>
+<aside  class="sidebar"       id="sidebar"></aside>
+
+<main class="main-content">
+<div class="page-content">
+
+  <div class="page-label">01</div>
+  <h2 class="page-title">About Me</h2>
+
+  <div class="about-grid">
+
+    <!-- ── Bio ──────────────────────────────────────────── -->
+    <div class="about-bio">
+      <p class="lead">
+        I am a third-year PhD candidate in <em>Calculus of Variations</em> at
+        <a href="https://www.ru.nl/en/departments/faculty-of-science/mathematics" target="_blank" rel="noopener">Radboud University Nijmegen</a>,
+        under the supervision of
+        <a href="https://www.ru.nl/en/people/cristoferi-r" target="_blank" rel="noopener">Prof. Riccardo Cristoferi</a>.
+        My position runs from September 2023 to August 2027.
+      </p>
+      <p>
+        My doctoral research focuses on <em>Homogenisation and Phase Separation
+        with multiple microscales</em>. I study the asymptotic behaviour, via
+        \(\Gamma\)-convergence, of Cahn–Hilliard-type energies in heterogeneous
+        periodic media when two (or more) length scales \(\varepsilon \ll \delta \ll 1\)
+        compete simultaneously. The goal is to identify the effective sharp-interface
+        limit and understand how the geometry of the microstructure governs the
+        resulting surface tension.
+      </p>
+      <p>
+        The central variational object is a family of functionals
+        \[
+          \mathcal{F}_{\varepsilon,\delta}[u]
+          = \int_\Omega \left[\frac{1}{\varepsilon}
+            W\!\left(\tfrac{x}{\delta},\, u(x)\right)
+          + \varepsilon\,|\nabla u(x)|^2\right]dx,
+        \]
+        where \(W(y,\cdot)\) is a double-well potential that is
+        \(\mathbb{Z}^n\)-periodic in \(y\). As \(\varepsilon,\delta\to 0\),
+        depending on the relative rate \(\varepsilon/\delta\), the
+        \(\Gamma\)-limit takes qualitatively different forms and the effective
+        surface tension is determined by a cell problem encoding the microscale
+        geometry.
+      </p>
+      <p>
+        Before Nijmegen I completed a Master's degree in <em>Engineering Mathematics</em>
+        at the Polytechnic University of Turin, with a thesis on quasi-static
+        brittle fracture in the Francfort–Marigo model, supervised by
+        <a href="https://staff.polito.it/marco.morandotti/" target="_blank" rel="noopener">Prof. Marco Morandotti</a>.
+        During my Master's I spent an exchange semester at KTH Royal Institute of
+        Technology in Stockholm.
+      </p>
+    </div>
+
+    <!-- ── Research interests ───────────────────────────── -->
+    <div class="about-interests">
+      <h3 class="subsection-title">Research Interests</h3>
+      <ul class="interest-list">
+        <li>Calculus of variations &amp; direct methods</li>
+        <li>\(\Gamma\)-convergence &amp; homogenisation</li>
+        <li>Phase separation &amp; Cahn–Hilliard energies</li>
+        <li>Geometric measure theory</li>
+        <li>Free-discontinuity problems &amp; brittle fracture</li>
+        <li>Sharp-interface limits &amp; mean curvature flow</li>
+        <li>Mathematical modelling in material science</li>
+      </ul>
+
+      <h3 class="subsection-title" style="margin-top:2rem;">A Favourite Result</h3>
+      <div class="theorem-box">
+        <span class="theorem-label">Theorem (Modica &amp; Mortola, 1977)</span>
+        <p>
+          Let \(\Omega\subset\mathbb{R}^n\) be open and bounded. The functionals
+          \[
+            \mathcal{F}_\varepsilon[u] = \int_\Omega
+            \left(\varepsilon|\nabla u|^2 + \frac{W(u)}{\varepsilon}\right)dx
+          \]
+          \(\Gamma\)-converge as \(\varepsilon\to 0\), in \(L^1(\Omega)\),
+          to a multiple of the perimeter functional
+          \(c_W \,\mathcal{H}^{n-1}(\partial\{u=1\}\cap\Omega)\),
+          where \(c_W = 2\int_0^1\!\sqrt{W(s)}\,ds\).
+        </p>
+      </div>
+
+      <h3 class="subsection-title" style="margin-top:2rem;">Affiliations &amp; Contacts</h3>
+      <ul class="interest-list">
+        <li><a href="https://www.ru.nl/en/people/pignatelli-l" target="_blank" rel="noopener">Radboud University profile</a></li>
+        <li><a href="mailto:luca.pignatelli@ru.nl">luca.pignatelli@ru.nl</a></li>
+        <li>Supervisor: <a href="https://www.ru.nl/en/people/cristoferi-r" target="_blank" rel="noopener">Riccardo Cristoferi</a></li>
+        <li>MSc supervisor: <a href="https://staff.polito.it/marco.morandotti/" target="_blank" rel="noopener">Marco Morandotti</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /.about-grid -->
+
+</div><!-- /.page-content -->
+
+<footer class="site-footer">
+  <p>&copy; <span id="yr"></span> Luca Pignatelli &mdash; Radboud University Nijmegen</p>
+</footer>
+</main>
+
+<script src="nav.js"></script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

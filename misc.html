@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miscellany — Luca Pignatelli</title>
+  <script>(function(){ var t=localStorage.getItem('lp-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); document.documentElement.setAttribute('data-theme',t); })();</script>
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="mobile-header" id="mobile-header"></header>
+<aside  class="sidebar"       id="sidebar"></aside>
+
+<main class="main-content">
+<div class="page-content">
+
+  <div class="page-label">07</div>
+  <h2 class="page-title">Miscellany</h2>
+
+  <p style="color:var(--ink-mid);font-size:.95rem;margin-bottom:3rem;line-height:1.75;">
+    Things that don't fit neatly elsewhere — books I've been reading, side
+    projects, and occasional thoughts. Updated irregularly.
+  </p>
+
+  <!-- ══════════════════════════════════════════════════════
+       RECENTLY READ
+  ══════════════════════════════════════════════════════ -->
+  <section class="misc-section">
+    <h3 class="subsection-title">Recently Read</h3>
+    <p style="color:var(--ink-mid);font-size:.88rem;margin-bottom:1.5rem;">
+      A running list of books I've read or am reading — math and otherwise.
+    </p>
+
+    <div class="book-list">
+
+      <!-- Replace / extend these entries freely -->
+
+      <div class="book-item">
+        <div class="book-spine" style="background:#5a3e28;">Bra</div>
+        <div>
+          <p class="book-title">Functional Analysis, Calculus of Variations and Optimal Control</p>
+          <p class="book-author">Francis Clarke</p>
+          <p class="book-note">A rigorous and elegant treatment that bridges functional analysis and variational methods. The chapter on necessary conditions is especially well written.</p>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-spine" style="background:#2a4a6a;">Dal</div>
+        <div>
+          <p class="book-title">An Introduction to \(\Gamma\)-Convergence</p>
+          <p class="book-author">Gianni Dal Maso</p>
+          <p class="book-note">The classic reference. Dense but rewarding — I keep coming back to it.</p>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-spine" style="background:#3a5a3a;">Bra</div>
+        <div>
+          <p class="book-title">Lectures on the Calculus of Variations and Optimal Control Theory</p>
+          <p class="book-author">L. C. Young</p>
+          <p class="book-note">Charming and idiosyncratic. Young's enthusiasm for the subject is infectious.</p>
+        </div>
+      </div>
+
+      <div class="book-item">
+        <div class="book-spine" style="background:#6a2a4a;">Umb</div>
+        <div>
+          <p class="book-title">Il Nome della Rosa</p>
+          <p class="book-author">Umberto Eco</p>
+          <p class="book-note">Re-reading in the original Italian. The layered references and the monastery as an epistemic labyrinth — better every time.</p>
+        </div>
+      </div>
+
+    </div><!-- /.book-list -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       SIDE PROJECTS
+  ══════════════════════════════════════════════════════ -->
+  <section class="misc-section">
+    <h3 class="subsection-title">Side Projects</h3>
+    <p style="color:var(--ink-mid);font-size:.88rem;margin-bottom:1.5rem;">
+      Things I work on outside of research.
+    </p>
+
+    <div class="project-list">
+
+      <div class="project-card">
+        <p class="project-name">Numerical Experiments in Phase Separation</p>
+        <p class="project-desc">
+          Python / C++ simulations of Cahn–Hilliard-type energies on periodic domains,
+          visualising the phase field evolution as \(\varepsilon \to 0\).
+          Useful for building intuition alongside the theory.
+        </p>
+        <span class="project-tag">Python · C++</span>
+      </div>
+
+      <div class="project-card">
+        <p class="project-name">CalcVar Reading Group Notes</p>
+        <p class="project-desc">
+          Typed-up summaries and problem sheets from the CalcVarNL reading group
+          sessions I organise. Topics so far: gradient flows, optimal transport.
+        </p>
+        <span class="project-tag">LaTeX · Community</span>
+      </div>
+
+      <div class="project-card">
+        <p class="project-name">Add your own…</p>
+        <p class="project-desc">
+          Replace this card with your own side project — a photography hobby,
+          a programming tool, an outreach initiative, anything.
+        </p>
+        <span class="project-tag">Placeholder</span>
+      </div>
+
+    </div><!-- /.project-list -->
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       THOUGHTS
+  ══════════════════════════════════════════════════════ -->
+  <section class="misc-section">
+    <h3 class="subsection-title">Thoughts</h3>
+    <p style="color:var(--ink-mid);font-size:.88rem;margin-bottom:1.5rem;">
+      Occasional short reflections. Not a blog — more like margin notes.
+    </p>
+
+    <div class="thought-list">
+
+      <div class="thought-item">
+        <p class="thought-date">March 2026</p>
+        <p class="thought-text">
+          There's something deeply satisfying about \(\Gamma\)-convergence:
+          the idea that a messy sequence of functionals can converge, in a
+          meaningful sense, to something clean. It's a kind of mathematical
+          patience — trust the limit.
+        </p>
+      </div>
+
+      <div class="thought-item">
+        <p class="thought-date">November 2024</p>
+        <p class="thought-text">
+          Giving the PhD colloquium talk on Plateau's problem reminded me why
+          I love mathematics outreach. The question "why do soap films minimise
+          area?" is elementary to state, yet opens into one of the richest
+          chapters of 20th-century analysis.
+        </p>
+      </div>
+
+      <div class="thought-item">
+        <p class="thought-date">Add your own…</p>
+        <p class="thought-text">
+          Delete this placeholder and write whatever is on your mind.
+          No need to be profound.
+        </p>
+      </div>
+
+    </div><!-- /.thought-list -->
+  </section>
+
+</div><!-- /.page-content -->
+<footer class="site-footer">
+  <p>&copy; <span id="yr"></span> Luca Pignatelli &mdash; Radboud University Nijmegen</p>
+</footer>
+</main>
+
+<script src="nav.js"></script>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
