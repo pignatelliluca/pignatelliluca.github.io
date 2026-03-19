@@ -19,25 +19,18 @@
 
   <p class="files-intro">
     Central repository of all downloadable files linked across this site —
-    papers, talk slides, posters, and course notes. Files are organised by
-    category and listed in reverse chronological order.
-    To add a file: drop the PDF in the <code>files/</code> folder next to the
-    HTML pages and uncomment the relevant row below.
+    papers, talk slides, posters, and course notes. Click <strong>Preview</strong>
+    to open a file directly in the browser, or <strong>Download</strong> to save it.
+    Files are organised by category, reverse-chronological within each.
+    To add a file: drop the PDF in the <code>files/</code> folder and add a row below.
   </p>
 
-  <!-- ══════════════════════════════════════════════════════
-       PAPERS
-  ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════ PAPERS -->
   <div class="file-category">
     <h3 class="subsection-title">Papers</h3>
     <table class="file-table">
       <thead>
-        <tr>
-          <th>Title</th>
-          <th>Type</th>
-          <th>Year</th>
-          <th>Download</th>
-        </tr>
+        <tr><th>Title</th><th>Type</th><th>Year</th><th>Actions</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -46,35 +39,34 @@
             <p class="file-context">Cristoferi, Pignatelli — arXiv:2506.14462</p>
           </td>
           <td><span class="file-badge badge-paper">Preprint</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">2025</td>
+          <td class="file-date">2025</td>
           <td>
-            <a href="https://arxiv.org/pdf/2506.14462" class="btn btn-pdf" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="https://arxiv.org/pdf/2506.14462"
+                data-pdf-title="Phase separation in multiply periodic materials — Cristoferi, Pignatelli (2025)">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="https://arxiv.org/pdf/2506.14462" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       SLIDES
-  ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════ SLIDES -->
   <div class="file-category">
     <h3 class="subsection-title">Talk Slides</h3>
     <table class="file-table">
       <thead>
-        <tr>
-          <th>Talk</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Download</th>
-        </tr>
+        <tr><th>Talk</th><th>Type</th><th>Date</th><th>Actions</th></tr>
       </thead>
       <tbody>
-
-        <!-- Add your slide files to the files/ folder and uncomment rows below -->
 
         <tr>
           <td>
@@ -82,12 +74,20 @@
             <p class="file-context">TU Wien seminar, Vienna</p>
           </td>
           <td><span class="file-badge badge-slides">Slides</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">May 2025</td>
+          <td class="file-date">May 2025</td>
           <td>
-            <a href="files/slides_tuwien_may2025.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/slides_tuwien_may2025.pdf"
+                data-pdf-title="Phase separation in heterogeneous media — TU Wien, May 2025">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/slides_tuwien_may2025.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
 
@@ -97,12 +97,20 @@
             <p class="file-context">RWTH Aachen seminar</p>
           </td>
           <td><span class="file-badge badge-slides">Slides</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">Mar 2025</td>
+          <td class="file-date">Mar 2025</td>
           <td>
-            <a href="files/slides_aachen_mar2025.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/slides_aachen_mar2025.pdf"
+                data-pdf-title="Homogenization and phase separation — RWTH Aachen, Mar 2025">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/slides_aachen_mar2025.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
 
@@ -112,12 +120,20 @@
             <p class="file-context">PhD Colloquium, Radboud University</p>
           </td>
           <td><span class="file-badge badge-slides">Slides</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">Oct 2024</td>
+          <td class="file-date">Oct 2024</td>
           <td>
-            <a href="files/slides_colloquium_oct2024.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/slides_colloquium_oct2024.pdf"
+                data-pdf-title="Why Soap Films are Smarter than Calculus — PhD Colloquium, Oct 2024">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/slides_colloquium_oct2024.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
 
@@ -127,12 +143,20 @@
             <p class="file-context">PhD Colloquium, Radboud University</p>
           </td>
           <td><span class="file-badge badge-slides">Slides</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">Oct 2024</td>
+          <td class="file-date">Oct 2024</td>
           <td>
-            <a href="files/slides_gammamia_oct2024.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/slides_gammamia_oct2024.pdf"
+                data-pdf-title="Gamma Mia: introduction to Γ-convergence — PhD Colloquium, Oct 2024">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/slides_gammamia_oct2024.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
 
@@ -142,12 +166,20 @@
             <p class="file-context">Workshop Mathematical Advances for Complex Materials, Würzburg</p>
           </td>
           <td><span class="file-badge badge-slides">Slides</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">Apr 2024</td>
+          <td class="file-date">Apr 2024</td>
           <td>
-            <a href="files/slides_wurzburg_apr2024.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/slides_wurzburg_apr2024.pdf"
+                data-pdf-title="Phase separation in multi-scale media — Würzburg, Apr 2024">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/slides_wurzburg_apr2024.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
 
@@ -155,19 +187,12 @@
     </table>
   </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       POSTERS
-  ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════ POSTERS -->
   <div class="file-category">
     <h3 class="subsection-title">Posters</h3>
     <table class="file-table">
       <thead>
-        <tr>
-          <th>Poster</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Download</th>
-        </tr>
+        <tr><th>Poster</th><th>Type</th><th>Date</th><th>Actions</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -176,31 +201,32 @@
             <p class="file-context">Summer School "Mathematical Analysis and Applications", Como</p>
           </td>
           <td><span class="file-badge badge-poster">Poster</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">Jun 2025</td>
+          <td class="file-date">Jun 2025</td>
           <td>
-            <a href="files/poster_como_jun2025.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/poster_como_jun2025.pdf"
+                data-pdf-title="Poster — Summer School Mathematical Analysis and Applications, Como (Jun 2025)">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/poster_como_jun2025.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       CURRICULUM VITAE
-  ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════ CV -->
   <div class="file-category">
     <h3 class="subsection-title">Curriculum Vitae</h3>
     <table class="file-table">
       <thead>
-        <tr>
-          <th>Document</th>
-          <th>Type</th>
-          <th>Updated</th>
-          <th>Download</th>
-        </tr>
+        <tr><th>Document</th><th>Type</th><th>Updated</th><th>Actions</th></tr>
       </thead>
       <tbody>
         <tr>
@@ -209,50 +235,59 @@
             <p class="file-context">Full academic CV</p>
           </td>
           <td><span class="file-badge badge-paper">CV</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">Oct 2025</td>
+          <td class="file-date">Oct 2025</td>
           <td>
-            <a href="files/cv_pignatelli.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/cv_pignatelli.pdf"
+                data-pdf-title="Curriculum Vitae — Luca Pignatelli">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/cv_pignatelli.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- ══════════════════════════════════════════════════════
-       NOTES (teaching / reading group)
-  ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════ NOTES -->
   <div class="file-category">
     <h3 class="subsection-title">Notes</h3>
-    <p style="color:var(--ink-mid);font-size:.85rem;margin-bottom:1.2rem;">
-      Course notes, reading-group summaries, and other expository material.
-      Add PDFs to the <code>files/</code> folder to populate this table.
+    <p style="color:var(--ink-lt);font-family:'DM Sans',sans-serif;font-size:.82rem;margin-bottom:1.2rem;">
+      Course notes, reading-group summaries, and expository material.
+      Drop PDFs in <code>files/</code> and uncomment the template row below.
     </p>
     <table class="file-table">
       <thead>
-        <tr>
-          <th>Document</th>
-          <th>Type</th>
-          <th>Year</th>
-          <th>Download</th>
-        </tr>
+        <tr><th>Document</th><th>Type</th><th>Year</th><th>Actions</th></tr>
       </thead>
       <tbody>
-        <!-- Example — uncomment and fill when ready:
+        <!--
         <tr>
           <td>
             <p class="file-name">Gradient Flows — Reading Group Notes</p>
             <p class="file-context">CalcVarNL Reading Group</p>
           </td>
           <td><span class="file-badge badge-notes">Notes</span></td>
-          <td style="white-space:nowrap;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink-lt);">2024</td>
+          <td class="file-date">2024</td>
           <td>
-            <a href="files/notes_gradient_flows.pdf" class="btn btn-pdf" download>
-              <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-              PDF
-            </a>
+            <div class="file-actions">
+              <button class="btn btn-outline"
+                data-pdf-preview="files/notes_gradient_flows.pdf"
+                data-pdf-title="Gradient Flows — Reading Group Notes (2024)">
+                <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+                Preview
+              </button>
+              <a href="files/notes_gradient_flows.pdf" class="btn btn-pdf" download>
+                <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+                Download
+              </a>
+            </div>
           </td>
         </tr>
         -->

@@ -6,12 +6,134 @@
  * • Handles dark / light mode (defaults to system preference)
  * • Handles mobile hamburger & click-outside
  *
- * PHOTO: Put your photo at  assets/photo.png
+ * PHOTO: Put your photo at  assets/photo.jpg
  * FILES: Put downloadable files in  files/
  */
 
 (function () {
   'use strict';
+
+  /* ────────────────────────────────────────────────────────────
+     PDF PREVIEW MODAL
+  ──────────────────────────────────────────────────────────── */
+  function buildModal() {
+    var overlay = document.createElement('div');
+    overlay.className = 'pdf-overlay';
+    overlay.id = 'pdfOverlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'PDF preview');
+    overlay.innerHTML =
+      '<div class="pdf-modal" id="pdfModal">' +
+        '<div class="pdf-modal-bar">' +
+          '<span class="pdf-modal-title" id="pdfModalTitle"></span>' +
+          '<a class="pdf-modal-download" id="pdfModalDownload" download>' +
+            '<svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>' +
+            'Download' +
+          '</a>' +
+          '<button class="pdf-modal-close" id="pdfModalClose" aria-label="Close preview">✕</button>' +
+        '</div>' +
+        '<div class="pdf-modal-body" id="pdfModalBody">' +
+          '<iframe id="pdfModalFrame" title="PDF preview"></iframe>' +
+          '<div class="pdf-modal-fallback">' +
+            '<p>This file cannot be previewed directly in the browser<br>(the server may not allow embedding).</p>' +
+            '<a class="pdf-modal-download" id="pdfFallbackDownload" download>' +
+              '<svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>' +
+              'Download PDF' +
+            '</a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var frame    = document.getElementById('pdfModalFrame');
+    var body     = document.getElementById('pdfModalBody');
+    var download = document.getElementById('pdfModalDownload');
+    var fallback = document.getElementById('pdfFallbackDownload');
+
+    /* Detect when iframe fails to load (CORS / X-Frame-Options block) */
+    frame.addEventListener('load', function () {
+      try {
+        /* If the frame loaded a cross-origin error page the contentDocument
+           will either throw or have no meaningful content */
+        var doc = frame.contentDocument || frame.contentWindow.document;
+        if (!doc || doc.title === '' && doc.body && doc.body.innerHTML === '') {
+          body.classList.add('blocked');
+        } else {
+          body.classList.remove('blocked');
+        }
+      } catch (e) {
+        /* Cross-origin → can't inspect → assume blocked */
+        body.classList.add('blocked');
+      }
+    });
+
+    frame.addEventListener('error', function () {
+      body.classList.add('blocked');
+    });
+
+    return overlay;
+  }
+
+  function openPdfPreview(url, title) {
+    var overlay  = document.getElementById('pdfOverlay') || buildModal();
+    var frame    = document.getElementById('pdfModalFrame');
+    var titleEl  = document.getElementById('pdfModalTitle');
+    var dl       = document.getElementById('pdfModalDownload');
+    var dlFb     = document.getElementById('pdfFallbackDownload');
+    var body     = document.getElementById('pdfModalBody');
+
+    titleEl.textContent = title || 'Document preview';
+    dl.href    = url;
+    dlFb.href  = url;
+    body.classList.remove('blocked');
+    frame.src  = url;
+
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    /* Focus trap */
+    var closeBtn = document.getElementById('pdfModalClose');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closePdfPreview() {
+    var overlay = document.getElementById('pdfOverlay');
+    var frame   = document.getElementById('pdfModalFrame');
+    if (overlay) overlay.classList.remove('open');
+    if (frame)   frame.src = '';            /* stop loading / free memory */
+    document.body.style.overflow = '';
+  }
+
+  function initPdfModal() {
+    /* Build modal DOM once */
+    if (!document.getElementById('pdfOverlay')) buildModal();
+
+    document.addEventListener('click', function (e) {
+      /* Close button */
+      if (e.target.closest('#pdfModalClose')) { closePdfPreview(); return; }
+
+      /* Click on overlay backdrop (outside modal box) */
+      var overlay = document.getElementById('pdfOverlay');
+      if (overlay && overlay.classList.contains('open') &&
+          e.target === overlay) { closePdfPreview(); return; }
+
+      /* Preview trigger — any element with data-pdf-preview */
+      var trigger = e.target.closest('[data-pdf-preview]');
+      if (trigger) {
+        e.preventDefault();
+        openPdfPreview(
+          trigger.getAttribute('data-pdf-preview'),
+          trigger.getAttribute('data-pdf-title') || ''
+        );
+      }
+    });
+
+    /* ESC key */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closePdfPreview();
+    });
+  }
 
   /* ────────────────────────────────────────────────────────────
      THEME
@@ -81,7 +203,7 @@
       '<div class="sidebar-identity">' +
         '<a href="index.html" class="headshot-link">' +
           '<div class="headshot-wrap">' +
-            '<img src="assets/photo.png" alt="Luca Pignatelli" class="headshot"' +
+            '<img src="assets/photo.jpg" alt="Luca Pignatelli" class="headshot"' +
             ' onerror="this.src=\'https://placehold.co/160x160/e8e2d9/0d1b2a?text=LP\'" />' +
           '</div>' +
         '</a>' +
@@ -124,7 +246,7 @@
         '<span></span><span></span><span></span>' +
       '</button>' +
       '<a href="index.html" class="mob-identity">' +
-        '<img src="assets/photo.png" alt="Luca Pignatelli" class="mob-photo"' +
+        '<img src="assets/photo.jpg" alt="Luca Pignatelli" class="mob-photo"' +
         ' onerror="this.src=\'https://placehold.co/40x40/e8e2d9/0d1b2a?text=LP\'" />' +
         '<div class="mob-id-text">' +
           '<span class="mob-name">Luca Pignatelli</span>' +
@@ -182,6 +304,9 @@
         }
       }
     });
+
+    /* PDF preview modal */
+    initPdfModal();
 
     /* Re-typeset MathJax for sidebar watermark */
     if (window.MathJax && window.MathJax.typesetPromise && sidebarEl) {

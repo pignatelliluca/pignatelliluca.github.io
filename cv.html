@@ -20,10 +20,18 @@
   <!-- Download banner -->
   <div class="cv-download-wrap">
     <p>A full PDF version of my curriculum vitae is available for download.</p>
-    <a href="files/cv_pignatelli.pdf" class="btn btn-pdf btn-cv" download>
-      <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
-      Download Full CV
-    </a>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;">
+      <button class="btn btn-outline"
+        data-pdf-preview="files/cv_pignatelli.pdf"
+        data-pdf-title="Curriculum Vitae — Luca Pignatelli">
+        <svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:13px;height:13px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 9h3M15 13h3"/></svg>
+        Preview CV
+      </button>
+      <a href="files/cv_pignatelli.pdf" class="btn btn-pdf btn-cv" download>
+        <svg viewBox="0 0 24 24"><path d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 2h14v2H5v-2z"/></svg>
+        Download Full CV
+      </a>
+    </div>
   </div>
 
   <!-- ── Academic Position ─────────────────────────────────── -->
@@ -191,7 +199,7 @@
       <p>
         <a href="https://www.ru.nl/en/people/cristoferi-r" target="_blank" rel="noopener">Riccardo Cristoferi</a><br>
         Radboud University<br>
-        <a href="mailto:cristoferi@science.ru.nl">cristoferi@science.ru.nl</a>
+        <a href="/cdn-cgi/l/email-protection#680b1a011b1c070e0d1a01281b0b010d060b0d461a1d460604"><span class="__cf_email__" data-cfemail="4625342f3532292023342f0635252f2328252368343368282a">[email&#160;protected]</span></a>
       </p>
     </div>
     <div class="skill-block">
@@ -199,18 +207,6 @@
       <p>
         <a href="https://staff.polito.it/marco.morandotti/" target="_blank" rel="noopener">Marco Morandotti</a><br>
         Polytechnic University of Turin<br>
-        <a href="mailto:marco.morandotti@polito.it">marco.morandotti@polito.it</a>
+        <a href="/cdn-cgi/l/email-protection#0865697a6b672665677a69666c677c7c6148786764617c6726617c"><span class="__cf_email__" data-cfemail="82efe3f0e1edacefedf0e3ece6edf6f6ebc2f2edeeebf6edacebf6">[email&#160;protected]</span></a>
       </p>
-    </div>
-  </div>
-
-</div>
-<footer class="site-footer">
-  <p>&copy; <span id="yr"></span> Luca Pignatelli &mdash; Radboud University Nijmegen</p>
-</footer>
-</main>
-
-<script src="nav.js"></script>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-</body>
-</html>
+    </
