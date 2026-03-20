@@ -12,16 +12,19 @@
 
     .game-card {
       background:var(--bg-card); border:1px solid var(--rule); border-radius:10px;
-      padding:1.1rem; display:flex; flex-direction:column; gap:.7rem;
+      padding:1.1rem; display:flex; flex-direction:column; gap:.55rem;
     }
-    .game-header { display:flex; align-items:center; gap:.45rem; flex-wrap:wrap; }
     .game-title-txt {
-      font-family:'Cormorant Garant',serif; font-size:1.15rem; font-weight:600;
-      color:var(--ink); flex:1; min-width:0;
+      font-family:'Cormorant Garant',serif; font-size:1.7rem; font-weight:600;
+      color:var(--ink); letter-spacing:-.01em; line-height:1.1; margin:0;
+    }
+    .game-header {
+      display:flex; align-items:center; gap:.45rem; flex-wrap:wrap;
+      padding-top:.2rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule);
     }
     .game-stats {
       font-family:'DM Sans',sans-serif; font-size:.70rem; color:var(--ink-lt);
-      white-space:nowrap;
+      white-space:nowrap; flex:1;
     }
     .game-hint {
       font-family:'DM Sans',sans-serif; font-size:.70rem; color:var(--ink-lt);
@@ -88,8 +91,8 @@
 
     <!-- ═══════════════════════════════════════════ 2048 -->
     <div class="game-card" id="card-2048">
+      <p class="game-title-txt">2048</p>
       <div class="game-header">
-        <span class="game-title-txt">2048</span>
         <span class="game-stats">Score&nbsp;<strong id="g2048-score">0</strong>&emsp;Best&nbsp;<strong id="g2048-best">0</strong></span>
         <button class="btn btn-outline gm-btn" id="g2048-new">New Game</button>
       </div>
@@ -100,8 +103,8 @@
 
     <!-- ═══════════════════════════════════════════ SNAKE -->
     <div class="game-card" id="card-snake">
+      <p class="game-title-txt">Snake</p>
       <div class="game-header">
-        <span class="game-title-txt">Snake</span>
         <span class="game-stats">Score&nbsp;<strong id="snake-score">0</strong>&emsp;Best&nbsp;<strong id="snake-best">0</strong></span>
         <button class="btn btn-outline gm-btn" id="snake-new">New Game</button>
       </div>
@@ -112,21 +115,21 @@
 
     <!-- ═══════════════════════════════════════════ MINESWEEPER -->
     <div class="game-card" id="card-ms">
+      <p class="game-title-txt">Minesweeper</p>
       <div class="game-header">
-        <span class="game-title-txt">Minesweeper</span>
         <span class="game-stats">&#128163;&nbsp;<strong id="ms-mines">10</strong>&emsp;&#9201;&nbsp;<strong id="ms-time">&#8212;</strong></span>
-        <button class="btn btn-outline gm-btn" id="ms-flag">&#128681; Flag</button>
+        <button class="btn btn-outline gm-btn" id="ms-flag">&#128269; Reveal</button>
         <button class="btn btn-outline gm-btn" id="ms-new">New</button>
       </div>
       <div class="ms-board-wrap"><div id="ms-board" class="ms-board"></div></div>
       <p class="game-msg" id="ms-msg"></p>
-      <p class="game-hint">Click to reveal &middot; Right-click or &#128681; to flag &middot; Best: <strong id="ms-best">&#8212;</strong></p>
+      <p class="game-hint">Click to reveal &middot; Right-click or switch to &#128681; Flag mode to flag &middot; Best: <strong id="ms-best">&#8212;</strong></p>
     </div>
 
     <!-- ═══════════════════════════════════════════ CONWAY -->
     <div class="game-card" id="card-life">
+      <p class="game-title-txt">Game of Life</p>
       <div class="game-header">
-        <span class="game-title-txt">Game of Life</span>
         <span class="game-stats">Gen&nbsp;<strong id="life-gen">0</strong>&emsp;Pop&nbsp;<strong id="life-pop">0</strong></span>
         <div style="display:flex;gap:.35rem;flex-shrink:0;">
           <button class="btn btn-outline gm-btn" id="life-toggle">&#9654;</button>
@@ -269,7 +272,7 @@ var g2048 = (function () {
 
   return {
     key: function(e) {
-      var m = {ArrowLeft:'left',ArrowRight:'right',ArrowUp:'up',ArrowDown:'down'};
+      var m = {ArrowLeft:'left',ArrowRight:'right',ArrowUp:'down',ArrowDown:'up'};
       if (m[e.key]) move(m[e.key]);
     }
   };
@@ -404,7 +407,7 @@ var gSnake = (function () {
     started=won=lost=false; lostR=lostC=-1; flagCount=0; flagMode=false;
     clearInterval(timerId);
     timeEl.textContent='\u2014'; minesEl.textContent=M; msgEl.textContent='';
-    flagBtn.textContent='\uD83D\uDEA9 Flag'; flagBtn.style.borderColor='';
+    flagBtn.textContent='\uD83D\uDD0D Reveal'; flagBtn.style.borderColor='';
     boardEl.style.gridTemplateColumns = 'repeat('+C+', 26px)';
     render();
   }
@@ -499,7 +502,7 @@ var gSnake = (function () {
 
   flagBtn.addEventListener('click', function(){
     flagMode=!flagMode;
-    flagBtn.textContent=flagMode?'\uD83D\uDD0D Reveal':'\uD83D\uDEA9 Flag';
+    flagBtn.textContent=flagMode?'\uD83D\uDEA9 Flag':'\uD83D\uDD0D Reveal';
     flagBtn.style.borderColor=flagMode?'var(--gold)':'';
   });
   document.getElementById('ms-new').addEventListener('click', newGame);
