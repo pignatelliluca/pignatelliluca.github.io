@@ -14,7 +14,20 @@
   'use strict';
 
   /* ────────────────────────────────────────────────────────────
-     PDF PREVIEW MODAL
+     PDF PREVIEW — open in new tab (works on all devices)
+  ──────────────────────────────────────────────────────────── */
+  function initPdfPreview() {
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('[data-pdf-preview]');
+      if (trigger) {
+        e.preventDefault();
+        window.open(trigger.getAttribute('data-pdf-preview'), '_blank', 'noopener');
+      }
+    });
+  }
+
+  /* ────────────────────────────────────────────────────────────
+     PDF PREVIEW MODAL (removed — kept as tombstone, delete safely)
   ──────────────────────────────────────────────────────────── */
   function buildModal() {
     var overlay = document.createElement('div');
@@ -317,8 +330,8 @@
       }
     });
 
-    /* PDF preview modal */
-    initPdfModal();
+    /* PDF preview — open in new tab */
+    initPdfPreview();
 
     /* Re-typeset MathJax for sidebar watermark */
     if (window.MathJax && window.MathJax.typesetPromise && sidebarEl) {
