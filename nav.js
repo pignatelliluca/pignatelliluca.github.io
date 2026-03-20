@@ -185,8 +185,9 @@
     { href: 'publications.html', label: 'Publications'     },
     { href: 'talks.html',        label: 'Talks'            },
     { href: 'teaching.html',     label: 'Teaching'         },
-    { href: 'cv.html',           label: 'Curriculum Vitae' },
-    { href: 'misc.html',         label: 'Miscellany'       },
+    { href: 'cv.html',           label: 'Curriculum Vitae'  },
+    { href: 'other.html',        label: 'Other Mathematics' },
+    { href: 'misc.html',         label: 'Miscellany'        },
     { href: 'files.html',        label: 'Files'            },
   ];
 
