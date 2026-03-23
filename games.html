@@ -273,7 +273,7 @@ var g2048 = (function () {
     var dx = e.changedTouches[0].clientX - ts2.clientX;
     var dy = e.changedTouches[0].clientY - ts2.clientY;
     if (Math.abs(dx) > Math.abs(dy)+15) move(dx>0 ? 'right' : 'left');
-    else if (Math.abs(dy) > Math.abs(dx)+15) move(dy>0 ? 'down' : 'up');
+    else if (Math.abs(dy) > Math.abs(dx)+15) move(dy>0 ? 'up' : 'down');
     ts2 = null;
   }, {passive:true});
 
