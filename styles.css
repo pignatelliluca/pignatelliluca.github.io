@@ -4,6 +4,20 @@
    Last updated: March 2026
 ============================================================= */
 
+/* ── APPLE FONTS ────────────────────────────────────────────── */
+@font-face { font-family:"SF Pro Display"; font-weight:400; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Display-Regular.woff2") format("woff2"); }
+@font-face { font-family:"SF Pro Display"; font-weight:500; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Display-Medium.woff2") format("woff2"); }
+@font-face { font-family:"SF Pro Display"; font-weight:600; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Display-Semibold.woff2") format("woff2"); }
+@font-face { font-family:"SF Pro Display"; font-weight:700; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Display-Bold.woff2") format("woff2"); }
+@font-face { font-family:"SF Pro Text"; font-weight:400; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Text-Regular.woff2") format("woff2"); }
+@font-face { font-family:"SF Pro Text"; font-weight:500; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Text-Medium.woff2") format("woff2"); }
+@font-face { font-family:"SF Pro Text"; font-weight:600; font-style:normal; font-display:swap; src:url("fonts/web/SF-Pro-Text-Semibold.woff2") format("woff2"); }
+@font-face { font-family:"New York"; font-weight:400; font-style:normal; font-display:swap; src:url("fonts/web/NewYorkSmall-Regular.woff2") format("woff2"); }
+@font-face { font-family:"New York"; font-weight:600; font-style:normal; font-display:swap; src:url("fonts/web/NewYorkSmall-Semibold.woff2") format("woff2"); }
+@font-face { font-family:"New York Large"; font-weight:400; font-style:normal; font-display:swap; src:url("fonts/web/NewYorkLarge-Regular.woff2") format("woff2"); }
+@font-face { font-family:"SF Mono"; font-weight:400; font-style:normal; font-display:swap; src:url("fonts/web/SF-Mono-Regular.woff2") format("woff2"); }
+@font-face { font-family:"SF Mono"; font-weight:500; font-style:normal; font-display:swap; src:url("fonts/web/SF-Mono-Medium.woff2") format("woff2"); }
+
 /* ── DESIGN TOKENS ─────────────────────────────────────────── */
 :root {
   --bg:          #ffffff;
@@ -35,7 +49,7 @@ html { scroll-behavior: smooth; font-size: 17px; }
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.72;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,12 +59,12 @@ img { display: block; max-width: 100%; }
 a { color: var(--accent); text-decoration: none; transition: color .15s; }
 a:hover { color: var(--accent-h); }
 h1,h2,h3,h4 {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-weight: 700; line-height: 1.12; letter-spacing: -.022em; color: var(--ink);
 }
 p + p { margin-top: .9em; }
 em { font-style: italic; }
-code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: .88em; background: var(--bg-2); padding: .1em .35em; border-radius: 4px; }
+code { font-family: "SF Mono", "Menlo", Consolas, monospace; font-size: .88em; background: var(--bg-2); padding: .1em .35em; border-radius: 4px; }
 
 /* ── PHASE BACKGROUND (injected by nav.js) ──────────────────── */
 #phase-bg {
@@ -121,7 +135,7 @@ code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: .88em; bac
 .sidebar-watermark {
   margin-top: 1.4rem; text-align: center; font-size: .8rem;
   color: var(--rule); pointer-events: none; user-select: none;
-  font-family: "New York", "Iowan Old Style", Georgia, serif;
+  font-family: "New York", "New York Large", "Iowan Old Style", Georgia, serif;
 }
 
 /* ── MAIN CONTENT ────────────────────────────────────────────── */
@@ -285,9 +299,9 @@ body.homepage { display:flex; flex-direction:column; align-items:center; }
 .theorem-box {
   background: var(--accent-bg); border-left: 2px solid var(--accent);
   border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 1rem 1.2rem; margin-top: .75rem;
-  font-family: "New York","Iowan Old Style",Georgia,serif;
+  font-family: "New York","New York Large","Iowan Old Style",Georgia,serif;
 }
-.theorem-label { display:block; font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif; font-size:.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.45rem; }
+.theorem-label { display:block; font-family:"SF Pro Text",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif; font-size:.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.45rem; }
 .theorem-box p { font-size:.9rem; color:var(--ink-mid); margin:0; line-height:1.65; }
 
 /* ── PUBLICATIONS ───────────────────────────────────────────────── */
@@ -438,7 +452,10 @@ mjx-container[display="true"] { overflow-x:auto; max-width:100%; padding:.5rem 0
 
 @media (max-width:768px) {
   .mobile-header { display:flex; }
-  .sidebar { transform:translateX(-100%); box-shadow:none; }
+  .sidebar {
+    transform:translateX(-100%); box-shadow:none;
+    top: 52px; height: calc(100vh - 52px);
+  }
   .sidebar.open { transform:translateX(0); box-shadow:8px 0 40px rgba(0,0,0,.12); }
   .main-content { margin-left:0; }
   .page-content { padding:2.5rem 1.5rem 3rem; }
