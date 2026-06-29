@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="talk_short_files/libs/clipboard/clipboard.min.js"></script>
+<script src="talk_short_files/libs/quarto-html/tabby.min.js"></script>
+<script src="talk_short_files/libs/quarto-html/popper.min.js"></script>
+<script src="talk_short_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="talk_short_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="talk_short_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="talk_short_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="author" content="Luca Pignatelli">
+  <meta name="dcterms.date" content="2026-07-06">
+  <title>A taxonomy of separation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="talk_short_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="talk_short_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="talk_short_files/libs/revealjs/dist/theme/quarto-f6dd9c5f1f381a481354e56a45b10b85.css">
+  <link href="talk_short_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="talk_short_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="talk_short_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="talk_short_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+<!-- Custom MathJax macros for the talk, mirroring the LaTeX notes' macro set.
+     Injected via include-before-body so MathJax (which typesets the whole document)
+     registers them before any slide math, including headings. -->
+<div style="display:none">
+\(
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\kB}{k_{\mathrm{B}}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\Per}{\operatorname{Per}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\phiA}{\varphi_A}
+\newcommand{\phiB}{\varphi_B}
+\newcommand{\phiC}{\varphi_C}
+\newcommand{\Ldelta}{\Lambda_\delta}
+\newcommand{\Fmix}{\Delta F}
+\newcommand{\Hmix}{\Delta H}
+\newcommand{\Smix}{\Delta S}
+\newcommand{\Umix}{\Delta U}
+\newcommand{\Flory}{\chi}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\)
+</div>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="figures/motif.svg" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">A taxonomy of separation</h1>
+  <p class="subtitle">From Flory–Huggins to non-local gradients</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Luca Pignatelli 
+</div>
+        <p class="quarto-title-affiliation">
+            CalcVarNL Meeting 2026 · Radboud University
+          </p>
+    </div>
+</div>
+
+  <p class="date">July 6, 2026</p>
+</section>
+<section id="why-does-the-calcvar-community-exist" class="slide level2 center">
+<h2>Why does the CalcVar community exist?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Collaboration</li>
+<li class="fragment">Friends</li>
+<li class="fragment">De Giorgi</li>
+<li class="fragment">Career</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Roermond</li>
+<li class="fragment">Fun</li>
+<li class="fragment">Italians 😈</li>
+</ul>
+</div></div>
+<p><br></p>
+<p><span class="lead fragment fade-up">The real reason: the <strong>Modica–Mortola functional.</strong></span></p>
+</section>
+<section id="the-modicamortola-functional" class="slide level2 center">
+<h2>The Modica–Mortola functional</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><span class="math display">\[ F_\eps(u) = \int_\Omega \big[\, W(u) + \eps^2\,|\nabla u|^2 \,\big]\,\dd x \]</span></p>
+<p>with a double-well potential <span class="math inline">\(W:\R\to[0,+\infty)\)</span>. <span class="cite" data-c="ModicaMortola1977,Modica1987"></span></p>
+<div class="fragment" data-fragment-index="2">
+<p>Ubiquitous in mathematical physics:</p>
+<ul>
+<li>Cahn–Hilliard / Allen–Cahn</li>
+<li>Ginzburg–Landau</li>
+<li>Mumford–Shah</li>
+</ul>
+</div>
+<p><span class="key fragment fade-up" data-fragment-index="3">But <strong>why</strong> this energy? <span class="math inline">\(\rightsquigarrow\)</span> thermodynamics.</span></p>
+</div><div class="column" style="width:44%;">
+<div class="fragment" data-fragment-index="1">
+<canvas id="wellQuartic" width="430" height="320"></canvas>
+</div>
+</div></div>
+</section>
+<section id="energy-minimization" class="slide level2 center">
+<h2>Energy minimization</h2>
+<p>The principle of <span class="fragment strike" data-fragment-index="1">least</span> <span class="fragment appear" data-fragment-index="1"><strong>stationary</strong></span> action.</p>
+<div class="fragment" data-fragment-index="2">
+<p>Translated to thermodynamics, it minimizes the</p>
+<div style="text-align:center">
+<p><span class="lead">Gibbs free energy</span></p>
+</div>
+<p><span class="math display">\[ \Fmix = \Hmix - T\,\Smix \qquad (\text{constant } P, T). \]</span></p>
+</div>
+<table class="cmp caption-top">
+<thead class="fragment" data-fragment-index="3">
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fix pressure</th>
+<th data-quarto-table-cell-role="th">fix volume</th>
+</tr>
+</thead>
+<tbody>
+<tr class="fragment odd" data-fragment-index="3">
+<th data-quarto-table-cell-role="th">experimentally</th>
+<td class="good">good</td>
+<td class="bad">bad</td>
+</tr>
+<tr class="fragment even" data-fragment-index="4">
+<th data-quarto-table-cell-role="th">mathematically</th>
+<td class="bad">bad</td>
+<td class="good">good</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><span class="lead fragment fade-up" data-fragment-index="5"><span class="math inline">\(\Longrightarrow\)</span> work with the <strong>Helmholtz</strong> free energy.</span></p>
+</section>
+<section id="helmholtz-free-energy" class="slide level2 center" data-transition="fade">
+<h2>Helmholtz free energy</h2>
+<p><span class="math display">\[ \Fmix = \Umix - T\,\Smix \qquad (\text{constant } V, T). \]</span></p>
+<div class="fragment">
+<p>Incompressibility gives <span class="math inline">\(\Delta V = 0\)</span>; since <span class="math inline">\(\Hmix = \Umix + P\,\Delta V\)</span>,</p>
+<p><span class="math display">\[ \Fmix = \Hmix = \Delta G. \quad\checkmark \]</span></p>
+</div>
+<p><br></p>
+<p><span class="key fragment fade-up"><strong>Roadmap</strong> &nbsp; — &nbsp; define the lattice &nbsp;→&nbsp; define the interactions &nbsp;→&nbsp; compute <span class="math inline">\(\Fmix\)</span> &nbsp;→&nbsp; <strong>win.</strong></span></p>
+</section>
+<section id="the-lattice-model" class="slide level2 smaller center">
+<h2>The lattice model</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><span class="math inline">\(\Omega\subset\R^d\)</span> bounded, connected, Lipschitz. For <span class="math inline">\(\delta&gt;0\)</span>, <span class="math display">\[ \Ldelta := \delta\Z^d \cap \Omega, \qquad N=\#\Ldelta \approx |\Omega|/\delta^d. \]</span></p>
+<div class="fragment">
+<p>Binary mixture <span class="math inline">\(A,B\)</span>. <strong>Configuration</strong> <span class="math display">\[ \sigma:\Ldelta\to\{0,1\}, \qquad \sigma(x)=\begin{cases}1 &amp; A\text{ at }x\\ 0 &amp; B\text{ at }x\end{cases} \]</span></p>
+<p><strong>Incompressibility:</strong> <span class="math inline">\(\sigma_B = 1-\sigma_A\)</span>.</p>
+</div>
+</div><div class="column" style="width:42%;">
+<div class="fragment">
+<p>Global fractions <span class="math display">\[ \phiA=\frac{N_A}{N}, \qquad \phiB=1-\phiA. \]</span></p>
+</div>
+<p><span class="key fragment fade-up">Order parameter: the fraction <span class="math inline">\(\phiA\in[0,1]\)</span>.</span></p>
+</div></div>
+</section>
+<section id="energy-of-mixing" class="slide level2 center">
+<h2>Energy of mixing</h2>
+<div style="display:flex; align-items:center; justify-content:center; gap:22px; margin-top:6px;">
+  <figure style="text-align:center">
+    <div style="font-size:0.7em; color:#2563eb; font-weight:600">pure A</div>
+    <canvas id="mixA" width="150" height="205"></canvas>
+  </figure>
+  <figure style="text-align:center">
+    <div style="font-size:0.7em; color:#ea7317; font-weight:600">pure B</div>
+    <canvas id="mixB" width="150" height="205"></canvas>
+  </figure>
+  <div class="fragment" data-fragment-index="1" style="display:flex; align-items:center; gap:22px;">
+    <div style="font-size:1.8em; color:#6b7280">⟶</div>
+    <figure style="text-align:center">
+      <div style="font-size:0.7em; color:#1f2933; font-weight:600">mixture</div>
+      <canvas id="mixDemo" width="285" height="345"></canvas>
+    </figure>
+  </div>
+</div>
+<div class="plot-controls fragment" data-fragment-index="1">
+  <span class="ctl">mixing&nbsp;level = <output id="mixVal">0.00</output>
+    <input type="range" id="mixSlider" min="0" max="1" step="0.01" value="0" style="width:240px"></span>
+</div>
+<p><span class="key fragment fade-up" data-fragment-index="2">Two competing effects set the equilibrium: <strong>entropy</strong> wants to mix, <strong>energy</strong> may not.</span></p>
+</section>
+<section id="first-ingredient-entropy" class="slide level2 smaller center">
+<h2>First ingredient: entropy</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Boltzmann counting of configurations gives the entropy of mixing per site <span class="math display">\[ \Smix = -\kB\big[\phiA\ln\phiA + \phiB\ln\phiB\big]. \]</span></p>
+<div class="fragment" data-fragment-index="2">
+<p>Always <span class="math inline">\(\Smix&gt;0\)</span>: &nbsp; <span class="lead">entropy <strong>opposes separation</strong>.</span></p>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment" data-fragment-index="1">
+<figure style="text-align:center">
+  <canvas id="entropyPlot" width="430" height="320"></canvas>
+  <figcaption>\(\Delta S(\varphi)&gt;0\) on \((0,1)\).</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="second-ingredient-internal-energy" class="slide level2 smaller center">
+<h2>Second ingredient: internal energy</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Pairwise nearest-neighbour, coordination number <span class="math inline">\(z\)</span>. <strong>Mean field:</strong> a neighbour is <span class="math inline">\(A\)</span> with probability <span class="math inline">\(\phiA\)</span>.</p>
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[ U_0 = \tfrac{z}{2}N\big[U_{AA}\phiA + U_{BB}\phiB\big], \]</span> <span class="math display">\[ U  = \tfrac{z}{2}N\big[U_{AA}\phiA^2 + 2U_{AB}\phiA\phiB + U_{BB}\phiB^2\big]. \]</span></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p>Per site, <span class="math inline">\(\;\Umix = \tfrac{z}{2}\big(2U_{AB}-U_{AA}-U_{BB}\big)\phiA\phiB.\)</span></p>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="fragment" data-fragment-index="3">
+<p><strong>Flory–Huggins interaction parameter</strong> <span class="cite" data-c="Flory1942"></span> <span class="math display">\[ \Flory = \frac{z}{2}\,\frac{2U_{AB}-U_{AA}-U_{BB}}{\kB T} \]</span> <span class="math display">\[ \Longrightarrow\quad \Umix = \kB T\,\Flory\,\phiA\phiB. \]</span></p>
+</div>
+</div></div>
+</section>
+<section id="the-floryhuggins-free-energy" class="slide level2 smaller center">
+<h2>The Flory–Huggins free energy</h2>
+<p><span class="math display">\[ \Fmix = \kB T\big[\phiA\ln\phiA + \phiB\ln\phiB + \Flory\,\phiA\phiB\big]. \]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="1">
+<p><span class="math inline">\(\Flory\)</span> controls the landscape: one well, then <strong>two</strong> at <span class="math inline">\(\Flory_c=2\)</span>.</p>
+<canvas id="dFPlot" width="430" height="300"></canvas>
+<div class="plot-controls">
+  <span class="ctl">χ = <output id="chiVal10">0.00</output>
+    <input type="range" id="chiSlider10" min="-0.25" max="3.35" step="0.01" value="0" style="width:240px"></span>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="2">
+<p>Equivalently, a mean-field <strong>Ising</strong> lattice: separation appears iff <span class="math display">\[ m=\tanh\!\big(\tfrac{\Flory}{2}m\big) \]</span> has a non-zero root, i.e.&nbsp;<span class="math inline">\(\Flory&gt;2\)</span> (Curie–Weiss). <span class="cite" data-c="LebowitzPenrose1966"></span></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<canvas id="tanhPlot" width="380" height="250"></canvas>
+<div class="plot-controls">
+  <span class="ctl">χ = <output id="chiVal21">0.00</output>
+    <input type="range" id="chiSlider21" min="-0.25" max="4" step="0.01" value="0" style="width:220px"></span>
+</div>
+</div>
+</div></div>
+</section>
+<section id="excess-above-equilibrium" class="slide level2 smaller center">
+<h2>Excess above equilibrium</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<p>The object that matters is the <strong>excess</strong> <span class="math inline">\(W \approx F-\min F\)</span> — the Modica–Mortola well.</p>
+<div class="fragment" data-fragment-index="3">
+<p>For chains of length <span class="math inline">\(n_A,n_B\)</span>, <span class="math display">\[ F = \frac{\phiA}{n_A}\ln\phiA + \frac{\phiB}{n_B}\ln\phiB + \Flory\,\phiA\phiB, \]</span> with coexistence set by the <strong>common tangent</strong> <span class="math inline">\(F'(\varphi_1^*)=F'(\varphi_2^*)=\mu\)</span>.</p>
+</div>
+<p><span class="key fragment fade-up" data-fragment-index="4">Minima of <span class="math inline">\(F\neq\)</span> minima of <span class="math inline">\(W\)</span> unless <span class="math inline">\(\mu=0\)</span> (monomers).</span></p>
+</div><div class="column" style="width:58%;">
+<div style="display:flex; gap:10px; justify-content:center;">
+  <div class="fragment" data-fragment-index="1"><canvas id="polyF" width="255" height="210"></canvas></div>
+  <div class="fragment" data-fragment-index="2"><canvas id="polyW" width="255" height="210"></canvas></div>
+</div>
+<div class="plot-controls">
+  <span class="ctl fragment" data-fragment-index="1">χ = <output id="chiVal14">2.50</output>
+    <input type="range" id="chiSlider14" min="0" max="3" step="0.01" value="2.5"></span>
+  <span class="ctl fragment" data-fragment-index="4">n<sub>A</sub> = <output id="nAVal">1</output>
+    <input type="range" id="nASlider" min="1" max="20" step="1" value="1"></span>
+  <span class="ctl fragment" data-fragment-index="4">n<sub>B</sub> = <output id="nBVal">1</output>
+    <input type="range" id="nBSlider" min="1" max="20" step="1" value="1"></span>
+</div>
+</div></div>
+</section>
+<section id="effective-parameter-block-copolymers" class="slide level2 smaller center">
+<h2>Effective parameter &amp; block copolymers</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>water–oil: <span class="math inline">\(\Flory_c\approx2\)</span>, <span class="math inline">\(\Flory_{\exp}\approx4\)</span> — weak separation</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li>PS–PMMA (<span class="math inline">\(n\approx10^3\)</span>): <span class="math inline">\(\Flory_c\approx2\cdot10^{-3}\)</span>, <span class="math inline">\(\Flory_{\exp}\approx4\cdot10^{-2}\)</span> — strong</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>Forcing a covalent bond <span class="math inline">\(\to\)</span> <strong>di-block copolymer</strong> PS-b-PMMA, modelled by Ohta–Kawasaki <span class="cite" data-c="OhtaKawasaki1986"></span>: <span class="math display">\[ F(u) + \frac{\gamma}{2}\!\iint (u-\bar u)\,G(x,y)\,(u-\bar u). \]</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="4">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/diblock.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+<p><span class="key fragment fade-up" data-fragment-index="5">Frustration selects a mesoscale <span class="math inline">\(\lambda\sim(\eps/\gamma)^{1/3}\)</span>.</span></p>
+</div></div>
+</section>
+<section id="gradient-correction" class="slide level2 smaller center">
+<h2>Gradient correction</h2>
+<p>At an interface <span class="math inline">\(\varphi\)</span> varies sharply; use the <strong>local fraction</strong> <span class="math inline">\(\varphi_\eta(x)=\dfrac{1}{\#(\Ldelta\cap B_\eta(x))}\displaystyle\sum_{y\in\Ldelta\cap B_\eta(x)}\sigma(y)\)</span>, with <span class="math inline">\(\delta\ll\eta\ll\diam\Omega\)</span>.</p>
+<div class="fragment">
+<p>The bond energy between neighbours is <span class="math display">\[ u(x,x+\delta e_i) = (U_{AA}+U_{BB}-2U_{AB})\,\varphi(x)\varphi(x+\delta e_i) + (U_{AB}-U_{BB})\big(\varphi(x)+\varphi(x+\delta e_i)\big) + U_{BB}. \]</span></p>
+</div>
+<div class="fragment">
+<p>The <strong>exact</strong> identity <span class="math inline">\(\varphi(x)\varphi(x+\delta e_i)=\tfrac12[\varphi(x)^2+\varphi(x+\delta e_i)^2]-\tfrac12[\varphi(x+\delta e_i)-\varphi(x)]^2\)</span> splits bulk + interface <span class="cite" data-c="CahnHilliard1958"></span>.</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ F_\delta(\varphi) = \delta^d\!\!\sum_{x\in\Ldelta^0}\!\Big[\, W(\varphi) + \frac{\Flory}{2}\,\delta^2\sum_{i=1}^d\Big(\frac{\varphi(x+\delta e_i)-\varphi(x)}{\delta}\Big)^2 \Big]. \]</span></p>
+</div>
+<p><span class="lead fragment fade-up">The <strong>discrete Modica–Mortola</strong> functional — our rigorous starting point.</span></p>
+</section>
+<section id="discrete-to-continuum-two-limits" class="slide level2 smaller center">
+<h2>Discrete-to-continuum: two limits</h2>
+<p>As <span class="math inline">\(\delta\to0\)</span> in <span class="math inline">\(L^2\)</span>, the bulk relaxes to its convex envelope <span class="cite" data-c="DalMaso1993"></span>: <span class="math display">\[ F_\delta \xrightarrow{\ \Ga\text{-}L^2\ } \int_\Omega W^{**}(\varphi)\,\dd x. \]</span></p>
+<div class="fragment">
+<p>Rescaling to a <strong>surface</strong> energy, <span class="math display">\[ F_\delta^{1} := \frac{F_\delta-\min F_0}{\delta} = \delta^{d-1}\!\!\sum_{x\in\Ldelta^0}\!\Big[ W(\varphi)+\tfrac{\Flory}{2}\sum_{i=1}^d(\varphi(x+\delta e_i)-\varphi(x))^2 \Big]. \]</span></p>
+</div>
+<div class="fragment">
+<p>Is the limit <span class="math inline">\(\;\sigma\cdot\Per(\{\varphi=0\})\)</span>? &nbsp; <span class="lead"><strong>No — it is anisotropic.</strong></span></p>
+</div>
+</section>
+<section id="the-anisotropic-surface-tension" class="slide level2 smaller center">
+<h2>The anisotropic surface tension</h2>
+<div class="columns">
+<div class="column" style="width:56%;">
+<p><span class="math display">\[ F_\delta^1 \xrightarrow{\ \Ga\text{-}L^1\ } \int_{\partial^*\{\varphi=0\}\cap\Omega}\!\! \sigma_{\mathrm{nn}}(\nu)\,\dd\mathcal H^{d-1}.  \]</span></p>
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[ \sigma_{\mathrm{nn}}(\nu)=\sup_{\{\lambda_i\}\in\Delta^{d-1}}\sum_{i=1}^d\gamma(\lambda_i)\,|\nu_i|, \]</span> with the optimal <strong>1D transition cost</strong> <span class="cite" data-c="Notes"></span> <span class="math display">\[ \gamma(\lambda)=\inf_{\varphi_{\mp\infty}=\varphi_{1,2}}\ \sum_{k\in\Z}\Big[\lambda\,W(\varphi_k)+\frac{\chi}{2}(\varphi_{k+1}-\varphi_k)^2\Big]. \]</span></p>
+</div>
+<p><span class="key fragment fade-up" data-fragment-index="2">So <span class="math inline">\(\sigma(\nu)=c\|\nu\|_2\)</span>? &nbsp;<strong>No</strong> — direction-dependent; the Wulff shape is <strong>faceted</strong>, interpolating disk <span class="math inline">\(\to\)</span> <span class="math inline">\(\ell^1\)</span>-cube.</span></p>
+</div><div class="column" style="width:44%;">
+<div class="fragment" data-fragment-index="3">
+<canvas id="wulffPlot" width="400" height="370"></canvas>
+<div class="plot-controls">
+  <span class="ctl"><output id="wulffVal">χ</output>
+    <input type="range" id="wulffChi" min="0" max="9" step="1" value="0"></span>
+</div>
+</div>
+</div></div>
+</section>
+<section id="how-to-obtain-isotropy-d2" class="slide level2 smaller center">
+<h2>How to obtain isotropy? (<span class="math inline">\(d=2\)</span>)</h2>
+<p>Take bonds <span class="math inline">\(b\in B\)</span> with couplings <span class="math inline">\(J_b\)</span> <span class="cite" data-c="Notes"></span>: nearest <span class="math inline">\(\{(1,0),(0,1)\}\)</span> (<span class="math inline">\(C_1\)</span>), next-nearest <span class="math inline">\(\{(1,1),(1,-1)\}\)</span> (<span class="math inline">\(C_2\)</span>), next-next-nearest <span class="math inline">\(\{(2,0),(0,2)\}\)</span> (<span class="math inline">\(C_3\)</span>).</p>
+<p>For a planar interface <span class="math inline">\(\varphi(x)=\psi(x\cdot\nu)\)</span> with <span class="math inline">\(q=b\cdot\nu\)</span>: <span class="math display">\[ (\Delta_b\varphi)^2 = q^2\psi^{(1)}\psi^{(1)} + q^3\psi^{(1)}\psi^{(2)} + q^4\big(\tfrac14\psi^{(2)}\psi^{(2)}+\tfrac13\psi^{(1)}\psi^{(3)}\big)+\cdots \]</span></p>
+<div class="fragment">
+<p>Summing over bonds, the odd powers integrate to zero (<span class="math inline">\(\int\psi^{(1)}\psi^{(3)}=-\int\psi^{(2)}\psi^{(2)}\)</span>), giving <span class="math display">\[ \sigma (\nu) \approx \int_{\mathbb{R}} \left[ W(\psi) + K_2 (\nu) \psi^{(1)}\psi^{(1)} + K_4 (\nu) \psi^{(2)}\psi^{(2)} + K_6 (\nu) \psi^{(3)}\psi^{(3)} + \cdots \right] \dd t \]</span></p>
+</div>
+<div class="fragment">
+<p>The even powers then give <span class="math display">\[ K_{2k}(\nu) := \sum_{b\in B} J_b\,(b\cdot\nu)^{2k}, \qquad K_2(\nu) = C_1 + 2 C_2 + 4 C_3\ \ (\text{isotropic gradient stiffness}). \]</span></p>
+</div>
+<p><span class="key fragment fade-up">The anisotropy lives in <span class="math inline">\(K_4, K_6,\dots\)</span> — the higher harmonics.</span></p>
+</section>
+<section id="how-to-obtain-isotropy-d2-1" class="slide level2 smaller center">
+<h2>How to obtain isotropy? (<span class="math inline">\(d=2\)</span>)</h2>
+<p><strong>Leading anisotropy</strong>: <span class="math display">\[ K_4(\theta) := \left( \tfrac34 C_1 + 3C_2 + 12C_3 \right) + \left( \tfrac14 C_1 - C_2 + 4 C_3  \right) \cos4\theta; \]</span></p>
+<div class="fragment">
+<p>With NN+NNN (<span class="math inline">\(C_3 = 0\)</span>), choosing <span class="math inline">\(C_2=\tfrac14 C_1\)</span> kills the <span class="math inline">\(\cos4\theta\)</span> term — <span class="math inline">\(K_4\)</span> becomes <strong>isotropic</strong>.</p>
+</div>
+<div class="fragment">
+<p>But the next order then survives: <span class="math display">\[ K_6 (\theta) = \big(\tfrac58 C_1+5C_2\big)+\big(\tfrac38 C_1-3C_2\big)\cos4\theta \ \xrightarrow{\;C_2=C_1/4\;}\ \tfrac38 C_1\,(5-\cos4\theta). \]</span></p>
+</div>
+<p><span class="key fragment fade-up">One shell is not enough.</span></p>
+<div class="fragment">
+<p><strong>Higher anisotropy</strong>: <span class="math display">\[ K_6 (\theta) := \left( \tfrac58 C_1 + 5 C_2 + 40 C_3 \right) + \left( \tfrac38 C_1 - 3 C_2 + 24 C_3  \right) \cos4\theta \]</span></p>
+</div>
+</section>
+<section id="a-hierarchy-of-harmonics" class="slide level2 smaller center">
+<h2>A hierarchy of harmonics</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p>Each fine tuned shell removes one more order: <span class="cite" data-c="Notes"></span></p>
+<ul>
+<li class="fragment"><strong>NN</strong>: <span class="math inline">\(K_2\)</span> isotropic, <span class="math inline">\(K_4\)</span> survives;</li>
+<li class="fragment"><strong>NN+NNN</strong> (<span class="math inline">\(C_2=\tfrac14 C_1\)</span>): <span class="math inline">\(K_4\)</span> isotropic, <span class="math inline">\(K_6\)</span> survives;</li>
+<li class="fragment"><strong>NN+NNN+NNNN</strong> (<span class="math inline">\(C_2=\tfrac38 C_1,\ C_3=\tfrac1{32}C_1\)</span>): <span class="math inline">\(K_4,K_6\)</span> isotropic, <span class="math inline">\(K_8\)</span> survives;</li>
+<li class="fragment"><span class="math inline">\(\ldots\)</span> a new harmonic always reappears.</li>
+</ul>
+<p><span class="lead fragment fade-up">No finite range is <em>exactly</em> isotropic</span></p>
+<p><span class="lead fragment fade-up"><span class="math inline">\(\Rightarrow\)</span> one needs a full <strong>kernel</strong> <span class="math inline">\(J\)</span>.</span></p>
+</div><div class="column" style="width:54%;">
+<canvas id="kPlot" width="380" height="380"></canvas>
+<div class="plot-controls kctrls">
+  <span class="ctl">model
+    <select id="kModel"><option value="NN">NN</option><option value="NNN" selected="">NNN</option><option value="NNNN">NNNN</option></select></span>
+  <span class="ctl" id="kC2wrap">C₂=<output id="kC2v">0.250</output>
+    <span class="srange"><input type="range" id="kC2" min="0" max="0.6" step="0.005" value="0.25"><span class="tick" id="kC2tick"></span></span></span>
+  <span class="ctl" id="kC3wrap">C₃=<output id="kC3v">0.0313</output>
+    <span class="srange"><input type="range" id="kC3" min="0" max="0.0625" step="0.00125" value="0.03125"><span class="tick" id="kC3tick"></span></span></span>
+</div>
+</div></div>
+</section>
+<section id="non-local-interactions" class="slide level2 smaller center">
+<h2>Non-local interactions</h2>
+<p>A <strong>Kac potential</strong> <span class="math inline">\(J_\eps(r)=\eps^d J(\eps r)\)</span>, with <span class="math inline">\(J\)</span> even and isotropic and interaction range <span class="math inline">\(\eps\)</span> <em>independent of <span class="math inline">\(\delta\)</span></em> <span class="cite" data-c="AlbertiBellettini1998"></span>: <span class="math display">\[ F_{\delta,\eps}(\varphi) = \sum_{x\in\T^d_\delta}\delta^d\Big[W(\varphi(x)) + \tfrac14\sum_{y\in\T^d_\delta}J_\eps(x-y)\big(\varphi(x)-\varphi(y)\big)^2\Big]. \]</span></p>
+<div class="fragment">
+<p><span class="math inline">\(\delta\to0\)</span>: <span class="math display">\[ F_{\delta,\eps}\xrightarrow{\ \Ga\ } F_\eps(\varphi)=\int_{\T^d} W(\varphi) + \tfrac14\iint_{\T^d} J_\eps(x-y)\big(\varphi(x)-\varphi(y)\big)^2. \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\eps\to0\)</span>: <span class="math display">\[ F_\eps\xrightarrow{\ \Ga\ } F_0(\varphi)=\int_{\partial^*\{\varphi=0\}}\sigma_0(\nu)\,\dd\mathcal H^{N-1}, \qquad \sigma_0(\nu)=\inf\Big\{\tfrac{1}{|C|}\,F(\varphi,T_C): \varphi\ C\text{-periodic},\ \varphi_{\mp\infty}=\varphi_{1,2}\Big\}. \]</span></p>
+</div>
+<div class="fragment">
+<p>A kernel is like <strong>infinitely many neighbour shells at once</strong> — it cancels <em>every</em> harmonic <span class="math inline">\(K_{2k}\)</span>, not just finitely many.</p>
+</div>
+<p><span class="lead fragment fade-up">If <span class="math inline">\(J\)</span> is isotropic <span class="math inline">\(\Rightarrow F\)</span> isotropic <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\sigma_0\)</span> <strong>isotropic</strong>.</span></p>
+<div class="fragment fade-up">
+<div style="text-align:center">
+<p><span class="lead"><strong>Isotropy at last.</strong></span></p>
+</div>
+</div>
+</section>
+<section id="the-gradient-is-only-the-first-order" class="slide level2 smaller center">
+<h2>The gradient is only the first order</h2>
+<p>The square-gradient is the <strong>leading term</strong> of the non-local penalization. Taylor-expanding <span class="math inline">\(\varphi(y)=\varphi(x)+\nabla\varphi(x)\cdot(y-x)+\cdots\)</span>, <span class="math display">\[ \tfrac14\!\iint J(x-y)\big(\varphi(x)-\varphi(y)\big)^2 \;\approx\; \frac{\kappa}{2}\int_\Omega|\nabla\varphi|^2, \qquad \kappa=\frac{1}{4d}\int_{\R^d} J(z)\,|z|^2\,\dd z \]</span> — the gradient coefficient is the <strong>second moment</strong> of the kernel.</p>
+<div class="fragment">
+<p>And the sharp-interface <span class="math inline">\(\Ga\)</span>-limit is <strong>largely independent of the shape</strong> of the penalization:</p>
+</div>
+<ul>
+<li class="fragment">Fonseca–Mantegazza <span class="cite" data-c="FonsecaMantegazza2000"></span>: &nbsp; <span class="math inline">\(\displaystyle\int \tfrac1\eps W(u) + \eps^3\,\norm{\nabla^2 u}^2\)</span></li>
+<li class="fragment">Brusca–Donati–Solci <span class="cite" data-c="BruscaDonatiSolci2024"></span>: &nbsp; <span class="math inline">\(\displaystyle\int \tfrac1\eps W(u) + \eps^{2k-1}\,\norm{D^k u}^2\)</span></li>
+</ul>
+<p><span class="key fragment fade-up">Same interfacial energy — the <strong>universality</strong> of Modica–Mortola.</span></p>
+</section>
+<section id="thank-you-for-the-attention" class="slide level2 closing-motif center" data-transition="fade" data-background-image="figures/motif.svg" data-background-size="cover">
+<h2>Thank you for the attention!</h2>
+<div class="recap">
+<ul>
+<li>microscopic <strong>lattice</strong> model <span class="math inline">\(\rightarrow\)</span> Flory–Huggins free energy of mixing</li>
+<li><strong>entropy vs energy</strong> <span class="math inline">\(\rightarrow\)</span> double well; transition at <span class="math inline">\(\Flory_c=2\)</span></li>
+<li><strong>gradient correction</strong> <span class="math inline">\(\rightarrow\)</span> discrete <strong>Modica–Mortola</strong> functional</li>
+<li><span class="math inline">\(\Ga\)</span>-limits: isotropic perimeter (decoupled) vs <strong>anisotropic</strong> (coupled)</li>
+<li>restoring isotropy: neighbour shells <span class="math inline">\(\rightarrow\)</span> <strong>non-local kernel</strong></li>
+<li><strong>universality</strong>: the <span class="math inline">\(\Ga\)</span>-limit barely depends on the penalization</li>
+</ul>
+</div>
+<div class="refs-closing">
+<p><span class="tag">ongoing</span><strong>Notes on phase separation</strong> — L. Pignatelli</p>
+<p>Flory (1942)&nbsp;·&nbsp;Cahn–Hilliard (1958)&nbsp;·&nbsp;Lebowitz–Penrose (1966)&nbsp;·&nbsp;Modica–Mortola (1977)&nbsp;·&nbsp;Ohta–Kawasaki (1986)&nbsp;·&nbsp;Modica (1987)&nbsp;·&nbsp;Dal Maso (1993)&nbsp;·&nbsp;Alberti–Bellettini (1998)&nbsp;·&nbsp;Fonseca–Mantegazza (2000)&nbsp;·&nbsp;Brusca–Donati–Solci (2024)</p>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="pictures/radboud_logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="talk_short_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="talk_short_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="talk_short_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="talk_short_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 5.5e-2,
+
+        math: {
+          mathjax: 'assets/mathjax/tex-svg.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <!-- Loaded at end of body: data, references, figures, citation tooltips. -->
+    <script src="assets/wulff_frames.js"></script>
+    <script src="assets/refs.js"></script>
+    <script src="assets/talk-plots.js?v=5"></script>
+    <script src="assets/citations.js"></script>
+    <script src="assets/notes.js"></script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

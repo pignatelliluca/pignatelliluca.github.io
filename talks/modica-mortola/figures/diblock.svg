@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Diblock-copolymer morphologies vs minority fraction r: spheres -> cylinders
+     -> gyroid -> lamellae. A = blue (#2563eb), B = orange (#ea7317). Schematic. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="Inter, sans-serif">
+  <defs>
+    <clipPath id="cell"><rect x="0" y="0" width="180" height="180" rx="10"/></clipPath>
+  </defs>
+
+  <!-- ===== Spheres ===== -->
+  <g transform="translate(20,18)">
+    <g clip-path="url(#cell)">
+      <rect width="180" height="180" fill="#ea7317"/>
+      <g fill="#2563eb">
+        <circle cx="36" cy="36" r="15"/><circle cx="90" cy="36" r="15"/><circle cx="144" cy="36" r="15"/>
+        <circle cx="36" cy="90" r="15"/><circle cx="90" cy="90" r="15"/><circle cx="144" cy="90" r="15"/>
+        <circle cx="36" cy="144" r="15"/><circle cx="90" cy="144" r="15"/><circle cx="144" cy="144" r="15"/>
+      </g>
+    </g>
+    <rect width="180" height="180" rx="10" fill="none" stroke="#d7dbe0"/>
+    <text x="90" y="205" text-anchor="middle" font-size="16" fill="#1f2933">Spheres</text>
+  </g>
+
+  <!-- ===== Cylinders ===== -->
+  <g transform="translate(240,18)">
+    <g clip-path="url(#cell)">
+      <rect width="180" height="180" fill="#ea7317"/>
+      <g fill="#2563eb">
+        <circle cx="30" cy="30" r="17"/><circle cx="90" cy="30" r="17"/><circle cx="150" cy="30" r="17"/>
+        <circle cx="60" cy="82" r="17"/><circle cx="120" cy="82" r="17"/><circle cx="0" cy="82" r="17"/><circle cx="180" cy="82" r="17"/>
+        <circle cx="30" cy="134" r="17"/><circle cx="90" cy="134" r="17"/><circle cx="150" cy="134" r="17"/>
+        <circle cx="60" cy="186" r="17"/><circle cx="120" cy="186" r="17"/>
+      </g>
+    </g>
+    <rect width="180" height="180" rx="10" fill="none" stroke="#d7dbe0"/>
+    <text x="90" y="205" text-anchor="middle" font-size="16" fill="#1f2933">Cylinders</text>
+  </g>
+
+  <!-- ===== Gyroid (stylised interpenetrating network) ===== -->
+  <g transform="translate(460,18)">
+    <g clip-path="url(#cell)">
+      <rect width="180" height="180" fill="#ea7317"/>
+      <g fill="none" stroke="#2563eb" stroke-width="14" stroke-linecap="round">
+        <path d="M -10,40 C 50,40 50,120 110,120 S 170,40 230,40"/>
+        <path d="M -10,140 C 50,140 50,60 110,60 S 170,140 230,140"/>
+        <path d="M 40,-10 C 40,50 120,50 120,110 S 40,170 40,230" stroke-opacity="0.55"/>
+        <path d="M 140,-10 C 140,50 60,50 60,110 S 140,170 140,230" stroke-opacity="0.55"/>
+      </g>
+    </g>
+    <rect width="180" height="180" rx="10" fill="none" stroke="#d7dbe0"/>
+    <text x="90" y="205" text-anchor="middle" font-size="16" fill="#1f2933">Gyroid</text>
+  </g>
+
+  <!-- ===== Lamellae ===== -->
+  <g transform="translate(680,18)">
+    <g clip-path="url(#cell)">
+      <rect width="180" height="180" fill="#ea7317"/>
+      <g fill="#2563eb">
+        <rect x="0"   y="0" width="30" height="180"/>
+        <rect x="60"  y="0" width="30" height="180"/>
+        <rect x="120" y="0" width="30" height="180"/>
+      </g>
+    </g>
+    <rect width="180" height="180" rx="10" fill="none" stroke="#d7dbe0"/>
+    <text x="90" y="205" text-anchor="middle" font-size="16" fill="#1f2933">Lamellae</text>
+  </g>
+
+  <!-- arrow: increasing minority fraction r -->
+  <g transform="translate(0,250)">
+    <line x1="40" y1="20" x2="860" y2="20" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="450" y="44" text-anchor="middle" font-size="15" fill="#6b7280">increasing minority block fraction&#160;&#160;r</text>
+  </g>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg>
