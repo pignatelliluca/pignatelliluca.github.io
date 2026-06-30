@@ -402,7 +402,7 @@ Luca Pignatelli
 </ul>
 </div>
 <div class="fragment" data-fragment-index="3">
-<p>Forcing a covalent bond <span class="math inline">\(\to\)</span> <strong>di-block copolymer</strong> PS-b-PMMA, modelled by Ohta–Kawasaki <span class="cite" data-c="OhtaKawasaki1986"></span>: <span class="math display">\[ F(u) + \frac{\gamma}{2}\!\iint (u-\bar u)\,G(x,y)\,(u-\bar u). \]</span></p>
+<p>Forcing a covalent bond <span class="math inline">\(\to\)</span> <strong>di-block copolymer</strong> PS-b-PMMA, modelled by Ohta–Kawasaki <span class="cite" data-c="OhtaKawasaki1986"></span>: <span class="math display">\[ F_\eps(u) + \frac{\gamma}{2}\!\iint (u-\bar u)\,G(x,y)\,(u-\bar u). \]</span></p>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="fragment" data-fragment-index="4">
@@ -511,7 +511,7 @@ Luca Pignatelli
 </section>
 <section id="non-local-interactions" class="slide level2 smaller center">
 <h2>Non-local interactions</h2>
-<p>A <strong>Kac potential</strong> <span class="math inline">\(J_\eps(r)=\eps^d J(\eps r)\)</span>, with <span class="math inline">\(J\)</span> even and isotropic and interaction range <span class="math inline">\(\eps\)</span> <em>independent of <span class="math inline">\(\delta\)</span></em> <span class="cite" data-c="AlbertiBellettini1998"></span>: <span class="math display">\[ F_{\delta,\eps}(\varphi) = \sum_{x\in\T^d_\delta}\delta^d\Big[W(\varphi(x)) + \tfrac14\sum_{y\in\T^d_\delta}J_\eps(x-y)\big(\varphi(x)-\varphi(y)\big)^2\Big]. \]</span></p>
+<p>A <strong>Kac potential</strong> <span class="math inline">\(J_\eps(r)=\eps^{-d} J(r/\eps)\)</span>, with <span class="math inline">\(J\)</span> even and isotropic, with rescale parameter <span class="math inline">\(\eps\)</span> <em>independent of <span class="math inline">\(\delta\)</span></em> <span class="cite" data-c="AlbertiBellettini1998"></span>: <span class="math display">\[ F_{\delta,\eps}(\varphi) = \sum_{x\in\T^d_\delta}\delta^d\Big[W(\varphi(x)) + \tfrac14\sum_{y\in\T^d_\delta}J_\eps(x-y)\big(\varphi(x)-\varphi(y)\big)^2\Big]. \]</span></p>
 <div class="fragment">
 <p><span class="math inline">\(\delta\to0\)</span>: <span class="math display">\[ F_{\delta,\eps}\xrightarrow{\ \Ga\ } F_\eps(\varphi)=\int_{\T^d} W(\varphi) + \tfrac14\iint_{\T^d} J_\eps(x-y)\big(\varphi(x)-\varphi(y)\big)^2. \]</span></p>
 </div>
